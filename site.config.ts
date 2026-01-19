@@ -1,11 +1,11 @@
 import siteConfig from "./src/utils/config";
 
 const config = siteConfig({
-	title: "ThoughtLite",
-	prologue: "If you need a website\nthat loads fast and has great SEO, then Astro is for you.",
+	title: "Jinblog",
+	prologue: "Welcome!\nSome thoughts and reflections on technology.",
 	author: {
-		name: "Your Name",
-		email: "hi@your.mail",
+		name: "Jin",
+		email: "wjinin25@gmail.com",
 		link: "https://your.website"
 	},
 	description: "A modern Astro theme focused on content creation.",
@@ -15,7 +15,7 @@ const config = siteConfig({
 	},
 	i18n: {
 		locales: ["en", "zh-cn", "ja"],
-		defaultLocale: "en"
+		defaultLocale: "zh-cn"
 	},
 	pagination: {
 		note: 15,
