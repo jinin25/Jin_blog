@@ -3,6 +3,7 @@ title: 站点配置指南
 timestamp: 2025-11-04 00:00:00+00:00
 tags: [Guide, Astro]
 description: Astro 主题站点的基础配置说明，涵盖环境变量、站点信息、Markdown 处理、图标生成等核心配置项。
+draft: true
 ---
 
 ## `.env`

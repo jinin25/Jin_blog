@@ -2,7 +2,7 @@ import siteConfig from "./src/utils/config";
 
 const config = siteConfig({
 	title: "Jinblog",
-	prologue: "Welcome!\nSome thoughts and reflections on technology.",
+	prologue: "Welcome!\nSome thoughts and reflections on technology and life.\nHope you like it!",
 	author: {
 		name: "Jin",
 		email: "wjinin25@gmail.com",

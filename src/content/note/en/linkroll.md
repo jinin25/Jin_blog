@@ -3,6 +3,7 @@ title: Linkroll Component Guide
 timestamp: 2025-11-17 00:00:00+00:00
 tags: [Guide, MDX]
 toc: true
+draft: true
 ---
 
 The theme provides a `Linkroll` component for the **Linkroll** section to display friend links or recommended sites in a more elegant and flexible way.

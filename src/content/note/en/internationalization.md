@@ -3,6 +3,7 @@ title: Internationalization Configuration Guide
 timestamp: 2025-11-07 00:00:00+00:00
 tags: [Guide, Astro]
 description: Detailed guide on configuring multi-language support for the theme, including changing default language, adding new languages, managing translation files, and configuring content directory structure.
+draft: true
 ---
 
 The theme has built-in multi-language support, with the default language being **English (`en`)**.

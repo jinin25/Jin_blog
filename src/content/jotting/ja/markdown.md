@@ -4,6 +4,7 @@ timestamp: 2025-11-24 00:00:00+00:00
 series: Astro
 tags: [Markup, Demo]
 description: テーマで拡張されたMarkdown構文機能の詳細ガイド、ルビ注釈、略語、ネタバレテキストなどの特殊マークアップ構文を含む。
+draft: true
 ---
 
 <style>

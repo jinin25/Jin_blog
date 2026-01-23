@@ -3,6 +3,7 @@ title: 连结组件使用指南
 timestamp: 2025-11-17 00:00:00+00:00
 tags: [Guide, MDX]
 toc: true
+draft: true
 ---
 
 主题针对**连结**板块提供了 `Linkroll` 组件，以更美观及灵活的方式展示友情链接或推荐站点。

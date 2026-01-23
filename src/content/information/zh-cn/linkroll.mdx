@@ -1,6 +1,23 @@
 import Linkroll from "$components/Linkroll.astro";
 
-export const links = [
+export const Contactlinks = [
+	{
+		title: "Weibo",
+		url: "https://weibo.com/u/7743801201",
+		image: "https://s1.chu0.com/src/img/png/01/01937a8052ca46e98dfb79ec710907b3.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:_fCMOFHV39VPD7ajwu2Nf1TUK_k=",
+		description: "Daily Talk.",
+		type: "insights"
+	},
+	{
+		title: "GitHub",
+		url: "https://github.com/jinin25",
+		image: "https://github.githubassets.com/favicons/favicon.svg",
+		description: "My Github pages.",
+		type: "insights"
+	}
+];
+
+export const TypeLinks = [
 	{
 		title: "Astro",
 		url: "https://astro.build/",
@@ -14,22 +31,57 @@ export const links = [
 		image: "https://svelte.dev/favicon.png",
 		description: "Web development for the rest of us.",
 		type: "technology"
-	},
-	{
-		title: "GitHub",
-		url: "https://github.com",
-		image: "https://github.githubassets.com/favicons/favicon.svg",
-		description: "The future of building happens together.",
-		type: "insights"
 	}
 ];
 
-主题**未提供**外站链接展示的在线申请接口，建议各位站长手动管理自己的链接列表。
 
-笔者鼓励每位站长将外站链接视为一种真实而有价值的推荐，收录自己**真正欣赏、常读或愿意分享**的站点。
+export const ToollinksOne = [
+	{
+		title: "VScode",
+		url: "https://code.visualstudio.com/",
+		image: "https://img.icons8.com/?size=96&id=9OGIyU8hrxW5&format=png",
+		description: "Code Editor",
+		type: "technology"
+	},
+	{
+		title: "Cursor",
+		url: "https://cursor.com/",
+		image: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/cursor.png",
+		description: "AI-powered Code Editor",
+		type: "technology"
+	}
+];
 
-<Linkroll locale={props.locale} links={links} />
+export const ToollinksTwo = [
+	{
+		title: "Chrome",
+		url: "https://www.google.com/chrome/ ",
+		image: "https://images.icon-icons.com/836/PNG/96/Google_Chrome_icon-icons.com_66794.png",
+		description: "Web Browser",
+		type: "creative"
+	},
+	{
+		title: "Obsidian",
+		url: "https://obsidian.md/",
+		image: "https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/640px-2023_Obsidian_logo.svg.png&w=640&q=50",
+		description: "Note Taking",
+		type: "lifestyle"
+	}
+];
 
-比起出于交换或纯 SEO 目的随意堆砌互链，笔者更希望每一个链接都是**内容共鸣**与**价值认同**的体现，并能以此构建起一个充满个性与温度的站点网络。
+## 工具
 
-如果您决定展示外站链接，不妨将其作为站点风格的延伸，使其与内容融为一体，成为值得信赖的一部分。
+<Linkroll locale={props.locale} links={ToollinksOne} />
+<Linkroll locale={props.locale} links={ToollinksTwo} />
+
+## 社交
+
+来了解我吧！
+
+<Linkroll locale={props.locale} links={Contactlinks} />
+
+
+
+## 主题
+
+<Linkroll locale={props.locale} links={TypeLinks} />

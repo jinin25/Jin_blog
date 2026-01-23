@@ -3,6 +3,7 @@ title: サイト設定ガイド
 timestamp: 2025-11-04 00:00:00+00:00
 tags: [Guide, Astro]
 description: Astro テーマサイトの基本設定説明、環境変数、サイト情報、Markdown処理、アイコン生成などのコア設定項目をカバー。
+draft: true
 ---
 
 ## `.env`

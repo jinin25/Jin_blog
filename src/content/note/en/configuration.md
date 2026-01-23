@@ -3,6 +3,7 @@ title: Site Configuration Guide
 timestamp: 2025-11-04 00:00:00+00:00
 tags: [Guide, Astro]
 description: Essential configuration guide for Astro theme sites, covering environment variables, site information, Markdown processing, and icon generation.
+draft: true
 ---
 
 ## `.env`

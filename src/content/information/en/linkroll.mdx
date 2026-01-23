@@ -1,6 +1,23 @@
 import Linkroll from "$components/Linkroll.astro";
 
-export const links = [
+export const Contactlinks = [
+	{
+		title: "Weibo",
+		url: "https://weibo.com/u/7743801201",
+		image: "https://s1.chu0.com/src/img/png/01/01937a8052ca46e98dfb79ec710907b3.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:_fCMOFHV39VPD7ajwu2Nf1TUK_k=",
+		description: "Daily Talk.",
+		type: "insights"
+	},
+	{
+		title: "GitHub",
+		url: "https://github.com/jinin25",
+		image: "https://github.githubassets.com/favicons/favicon.svg",
+		description: "My Github pages.",
+		type: "insights"
+	}
+];
+
+export const TypeLinks = [
 	{
 		title: "Astro",
 		url: "https://astro.build/",
@@ -14,22 +31,54 @@ export const links = [
 		image: "https://svelte.dev/favicon.png",
 		description: "Web development for the rest of us.",
 		type: "technology"
-	},
-	{
-		title: "GitHub",
-		url: "https://github.com",
-		image: "https://github.githubassets.com/favicons/favicon.svg",
-		description: "The future of building happens together.",
-		type: "insights"
 	}
 ];
 
-The theme **does not provide** an online application interface for external links, and it is recommended that webmasters manually manage their own link lists.
+export const ToollinksOne = [
+	{
+		title: "VScode",
+		url: "https://code.visualstudio.com/",
+		image: "https://img.icons8.com/?size=96&id=9OGIyU8hrxW5&format=png",
+		description: "Code Editor",
+		type: "technology"
+	},
+	{
+		title: "Cursor",
+		url: "https://cursor.com/",
+		image: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/cursor.png",
+		description: "AI-powered Code Editor",
+		type: "technology"
+	}
+];
 
-The author encourages every webmaster to view external links as genuine and valuable recommendations, including only sites they **truly appreciate, regularly read, or are willing to share**.
+export const ToollinksTwo = [
+	{
+		title: "Chrome",
+		url: "https://www.google.com/chrome/ ",
+		image: "https://images.icon-icons.com/836/PNG/96/Google_Chrome_icon-icons.com_66794.png",
+		description: "Web Browser",
+		type: "creative"
+	},
+	{
+		title: "Obsidian",
+		url: "https://obsidian.md/",
+		image: "https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/640px-2023_Obsidian_logo.svg.png&w=640&q=50",
+		description: "Note Taking",
+		type: "lifestyle"
+	}
+];
 
-<Linkroll locale={props.locale} links={links} />
+## Tools
 
-Rather than randomly adding mutual links for exchange or pure SEO purposes, the author hopes that every link represents **content resonance** and **value recognition**, building a site network full of personality and warmth.
+<Linkroll locale={props.locale} links={ToollinksOne} />
+<Linkroll locale={props.locale} links={ToollinksTwo} />
 
-If you decide to display external links, consider them as an extension of your site's style, integrating them with your content to become a trustworthy part of your site.
+## Social
+
+Feel Free to Contact me!
+
+<Linkroll locale={props.locale} links={Contactlinks} />
+
+## Topics
+
+<Linkroll locale={props.locale} links={TypeLinks} />

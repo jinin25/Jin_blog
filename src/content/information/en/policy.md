@@ -11,9 +11,9 @@ We highly value your privacy and only collect the minimal data necessary to prov
 
 The following table provides an overview of the types of data collected, collection purposes, and storage locations:
 
-| Data Type | Collection Method | Collection Purpose | Storage Location | Notes |
-| - | - | - | - | - |
-| Theme preferences | User settings | Save interface display mode | localStorage | |
+| Data Type         | Collection Method | Collection Purpose          | Storage Location | Notes |
+| ----------------- | ----------------- | --------------------------- | ---------------- | ----- |
+| Theme preferences | User settings     | Save interface display mode | localStorage     |       |
 
 ### Data Usage Purposes
 
@@ -47,6 +47,61 @@ As a data subject, you have the following rights regarding your personal data:
 ### Service Content
 
 This site is a personal content creation platform based on open-source technology, primarily providing:
+
+- Article reading and browsing functionality.
+- Feed subscription service.
+
+### User Permissions
+
+- Browse all public content on the site.
+- Subscribe to Feed.
+
+### User Code of Conduct
+
+When using this site's services, you need to comply with:
+
+- Respect the legitimate rights and interests of other users and content creators.
+- Do not abuse or attempt to damage the site's technical architecture.
+
+### Intellectual Property
+
+- This site's theme is released under the [GPLv3 open source license](https://www.gnu.org/licenses/gpl-3.0.html).
+- Original content on the site is licensed under Creative Commons licenses. Please refer to the website footer for the specific license type.
+- Third-party resources follow their respective licenses.
+
+### Service Changes and Termination
+
+- This site reserves the right to modify, suspend, or terminate some or all services at any time.
+- Major changes will be notified to users through site announcements or other appropriate means.
+
+## Disclaimer
+
+> **Last Updated**: Jul 27, 2025
+
+### Content Disclaimer
+
+- The content on this site represents only the author's personal views and does not constitute any form of advice or guidance.
+- This site does not assume responsibility for the accuracy, completeness, or timeliness of the content.
+- Users are responsible for any consequences arising from using the content on this site.
+
+### Technical Disclaimer
+
+- This site is built on open-source technology. While we strive to ensure stable service, we do not guarantee uninterrupted service.
+- This site is not responsible for service interruptions caused by network failures, server maintenance, force majeure, or other factors.
+- Failures or policy changes of third-party services may affect the functionality of this site.
+
+### Link Disclaimer
+
+- This site may contain links to third-party websites. This site is not responsible for the content or privacy policies of these websites.
+- Users are responsible for clicking external links and the consequences thereof.
+
+### Loss Disclaimer
+
+To the maximum extent permitted by law, this site is not liable for the following:
+
+- Direct or indirect losses caused by using or inability to use this site's services.
+- Data loss, business interruption, or other economic losses.
+- Infringement or breach of contract by third parties.
 
 - Article reading and browsing functionality.
 - Feed subscription service.

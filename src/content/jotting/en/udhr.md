@@ -4,6 +4,7 @@ timestamp: 1948-12-10 00:00:00+00:00
 tags: [UnitedNations, Demo]
 top: 1
 description: Important document adopted by the UN General Assembly in 1948, establishing universal standards and principles for fundamental human rights and freedoms.
+draft: true
 ---
 
 ## Preamble

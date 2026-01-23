@@ -18,7 +18,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme]) {
 		--primary-color: #dddddb;
 		--secondary-color: #aaaaa8;
 		--remark-color: #a5a5a5;
@@ -36,6 +36,17 @@
 	}
 }
 
+[data-theme="light"] {
+	--primary-color: #2a2a28;
+	--secondary-color: #50504d;
+	--remark-color: #757575;
+	--weak-color: #9f9f9c;
+	--background-color: #fffffd;
+	--block-color: #eeeeee;
+	--shadow-color: #cdcdcc;
+	--selection-color: #adadacc3;
+}
+
 [data-theme="dark"] {
 	--primary-color: #dddddb;
 	--secondary-color: #aaaaa8;
@@ -45,6 +56,24 @@
 	--block-color: #1e1e1e;
 	--shadow-color: #323231;
 	--selection-color: #adadacc3;
+}
+
+[data-theme="light"] .site-logo {
+	color: #000000;
+}
+
+[data-theme="dark"] .site-logo {
+	color: #ffffff;
+}
+
+.site-logo * {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+.site-logo .bg {
+	fill: none !important;
+	stroke: none !important;
 }
 
 /* Language-specific fonts */

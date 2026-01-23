@@ -4,6 +4,7 @@ timestamp: 2025-11-24 00:00:00+00:00
 series: Astro
 tags: [Markup, Demo]
 description: Detailed guide to extended Markdown syntax features in the theme, including Ruby annotations, abbreviations, spoiler text, and other special markup syntax.
+draft: true
 ---
 
 <style>

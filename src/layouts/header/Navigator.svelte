@@ -9,16 +9,16 @@ import Menu from "./Menu.svelte";
 
 let { locale, route }: { locale: string; route: string } = $props();
 
-const t = i18nit(locale);
+const t = $derived(i18nit(locale));
 
 // Define home route and navigation routes configuration
-const homeRoute = getRelativeLocaleUrl(locale);
-const routes: { path: string; extra?: string[]; icon: `${string}--${string}`; label: string }[] = [
+const homeRoute = $derived(getRelativeLocaleUrl(locale));
+const routes = $derived([
 	{ label: t("navigation.home"), path: homeRoute, extra: [getRelativeLocaleUrl(locale, "/preface")], icon: "lucide--tent" },
 	{ label: t("navigation.note"), path: getRelativeLocaleUrl(locale, "/note"), icon: "lucide--list" },
 	{ label: t("navigation.jotting"), path: getRelativeLocaleUrl(locale, "/jotting"), icon: "lucide--feather" },
 	{ label: t("navigation.about"), path: getRelativeLocaleUrl(locale, "/about"), icon: "lucide--at-sign" }
-];
+]);
 
 /**
  * Check if a route is currently active based on the current route path
@@ -46,6 +46,26 @@ onMount(() => {
 	for (const link of navigator!.getElementsByTagName("a")) {
 		link.addEventListener("click", () => (menu = false));
 	}
+
+	// #region agent log
+	fetch("http://127.0.0.1:7243/ingest/e69208c1-343b-4982-9b44-784bb3d593bb", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({
+			sessionId: "debug-session",
+			runId: "pre-fix",
+			hypothesisId: "B",
+			location: "src/layouts/header/Navigator.svelte:onMount",
+			message: "Navigator mounted",
+			data: {
+				menuInitial: menu,
+				hasThemeSwitcherButton: document.querySelectorAll('button[aria-label="Toggle dark theme"]').length,
+				overlayButtons: document.querySelectorAll("button.fixed.top-0.start-0.w-screen.h-screen").length
+			},
+			timestamp: Date.now()
+		})
+	}).catch(() => {});
+	// #endregion agent log
 
 	// Set up route tracking for page navigation with Swup integration
 	const updateRoute = () => (route = window.location.pathname);
