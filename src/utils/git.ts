@@ -22,20 +22,28 @@ export function getFileGitHistory(filePath: string): GitHistoryItem[] {
 	}
 
 	try {
-		// 获取文件的所有commit历史
-		// 注意：在Windows上需要给format参数加引号
-		const result = execSync(`git log --follow --format="%H|%aI" -- "${filePath}"`, {
-			encoding: "utf-8",
-			cwd: path.dirname(filePath),
-			shell: "cmd.exe" // 使用cmd.exe避免PowerShell的管道符问题
-		}).trim();
-
-		if (!result) {
-			console.log(`文件没有Git历史: ${filePath}`);
+		// 检查是否在Git仓库中
+		try {
+			execSync("git rev-parse --git-dir", {
+				encoding: "utf-8",
+				cwd: path.dirname(filePath),
+				stdio: "pipe"
+			});
+		} catch {
+			// 不在Git仓库中，直接返回空数组
 			return [];
 		}
 
-		console.log(`获取到Git历史 (${filePath}):`, result.split("\n").length, "条记录");
+		// 获取文件的所有commit历史
+		const result = execSync(`git log --follow --format="%H|%aI" -- "${filePath}"`, {
+			encoding: "utf-8",
+			cwd: path.dirname(filePath),
+			stdio: "pipe" // 避免输出到控制台
+		}).trim();
+
+		if (!result) {
+			return [];
+		}
 
 		const commits = result.split("\n").map(line => {
 			const [hash, dateStr] = line.split("|");
@@ -69,7 +77,7 @@ export function getFileGitHistory(filePath: string): GitHistoryItem[] {
 
 		return history;
 	} catch (error) {
-		console.error(`获取Git历史失败: ${filePath}`, error);
+		// 静默失败，在构建环境中Git可能不可用
 		return [];
 	}
 }

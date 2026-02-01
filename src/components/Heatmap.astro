@@ -61,7 +61,6 @@ const now = Time().toPlainDate();
 notes.forEach(note => {
 	// note.id for zh-cn locale is like "zh-cn/paperreading-mllm1"
 	const filePath = path.join(process.cwd(), "src", "content", "note", `${note.id}.md`);
-	console.log(`处理笔记: ${note.data.title}, 路径: ${filePath}`);
 	const gitHistory = getFileGitHistory(filePath);
 
 	const link = getRelativeLocaleUrl(locale, `/note/${monolocale ? note.id : note.id.split("/").slice(1).join("/")}`);
@@ -93,7 +92,6 @@ notes.forEach(note => {
 jottings.forEach(jotting => {
 	// jotting.id for zh-cn locale is like "zh-cn/some-jotting"
 	const filePath = path.join(process.cwd(), "src", "content", "jotting", `${jotting.id}.md`);
-	console.log(`处理随记: ${jotting.data.title}, 路径: ${filePath}`);
 	const gitHistory = getFileGitHistory(filePath);
 
 	const link = getRelativeLocaleUrl(locale, `/jotting/${monolocale ? jotting.id : jotting.id.split("/").slice(1).join("/")}`);
