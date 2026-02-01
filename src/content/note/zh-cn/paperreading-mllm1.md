@@ -83,7 +83,7 @@ description: MLLM相关基本论文的阅读和思考。
 
 把视觉语言模型分类，其中 Clip 属于图 b，对于交互上仅仅使用了点乘，ViLT 属于图 d。
 
-![视觉语言模型分类](/images/Pasted-image-20251011214403.png)
+> ![视觉语言模型分类](/images/Pasted-image-20251011214403.png)
 
 ## ALBEF
 
