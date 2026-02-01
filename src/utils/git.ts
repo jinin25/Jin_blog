@@ -23,11 +23,19 @@ export function getFileGitHistory(filePath: string): GitHistoryItem[] {
 
 	try {
 		// 获取文件的所有commit历史
-		const result = execSync(`git log --follow --format=%H|%aI -- "${filePath}"`, { encoding: "utf-8", cwd: path.dirname(filePath) }).trim();
+		// 注意：在Windows上需要给format参数加引号
+		const result = execSync(`git log --follow --format="%H|%aI" -- "${filePath}"`, {
+			encoding: "utf-8",
+			cwd: path.dirname(filePath),
+			shell: "cmd.exe" // 使用cmd.exe避免PowerShell的管道符问题
+		}).trim();
 
 		if (!result) {
+			console.log(`文件没有Git历史: ${filePath}`);
 			return [];
 		}
+
+		console.log(`获取到Git历史 (${filePath}):`, result.split("\n").length, "条记录");
 
 		const commits = result.split("\n").map(line => {
 			const [hash, dateStr] = line.split("|");
