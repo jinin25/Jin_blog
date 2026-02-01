@@ -212,7 +212,7 @@ function groupByTitleAndActivity(items: ContentWithActivity[]) {
 						const modifyCount = notes.filter(n => n.activityType === "modify").length;
 						details.push(
 							<p>
-								{t("home.heatmap.note", { count: notes.length })} (创建: {createCount}, 修改: {modifyCount})
+								{t("home.heatmap.note", { count: notes.length })} (创建: {createCount}, 更新: {modifyCount})
 							</p>
 						);
 					} else {
@@ -249,7 +249,7 @@ function groupByTitleAndActivity(items: ContentWithActivity[]) {
 						const modifyCount = jottings.filter(j => j.activityType === "modify").length;
 						details.push(
 							<p>
-								{t("home.heatmap.jotting", { count: jottings.length })} (创建: {createCount}, 修改: {modifyCount})
+								{t("home.heatmap.jotting", { count: jottings.length })} (创建: {createCount}, 更新: {modifyCount})
 							</p>
 						);
 					} else {
@@ -264,7 +264,7 @@ function groupByTitleAndActivity(items: ContentWithActivity[]) {
 									const info = entry[1];
 									const badges = [];
 									if (info.create) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-green-500/20 text-green-600 dark:text-green-400">创建</span>);
-									if (info.modify) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-blue-500/20 text-blue-600 dark:text-blue-400">修改</span>);
+									if (info.modify) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-blue-500/20 text-blue-600 dark:text-blue-400">更新</span>);
 
 									return (
 										<li class="flex items-center gap-1">
