@@ -5,6 +5,8 @@ import config, { monolocale } from "$config";
 import type { Section } from "$utils/config";
 import Time from "$utils/time";
 import i18nit from "$i18n";
+import { getFileGitHistory } from "$utils/git";
+import path from "path";
 
 /**
  * Content item structure
@@ -15,6 +17,22 @@ interface ContentItem {
 		title: string;
 		timestamp: Date;
 	};
+}
+
+/**
+ * Activity type
+ */
+type ActivityType = "create" | "modify";
+
+/**
+ * Content with activity information
+ */
+interface ContentWithActivity {
+	section: Section;
+	title: string;
+	date: Temporal.PlainDate;
+	link: string;
+	activityType: ActivityType;
 }
 
 /**
@@ -32,31 +50,71 @@ let { locale, notes, jottings } = Astro.props;
 const t = i18nit(locale);
 
 // Temporary storage for processed content and heatmap cells
-const contents: { section: Section; title: string; date: Temporal.PlainDate; link: string }[] = [];
-const cells: { target: string; contents: typeof contents }[] = [];
+const contents: ContentWithActivity[] = [];
+const cells: { target: string; contents: ContentWithActivity[] }[] = [];
 
 // Determine heatmap frequency (default: day)
 const frequency = config.heatmap?.unit || "day";
 const now = Time().toPlainDate();
 
-// Normalize notes and add to contents list
+// Process notes with Git history
 notes.forEach(note => {
-	contents.push({
-		section: "note",
-		title: note.data.title,
-		date: Time(note.data.timestamp.toISOString()).toPlainDate(),
-		link: getRelativeLocaleUrl(locale, `/note/${monolocale ? note.id : note.id.split("/").slice(1).join("/")}`)
-	});
+	const filePath = path.join(process.cwd(), "src", "content", "note", monolocale ? `${note.id}.md` : `${note.id}.md`);
+	const gitHistory = getFileGitHistory(filePath);
+
+	const link = getRelativeLocaleUrl(locale, `/note/${monolocale ? note.id : note.id.split("/").slice(1).join("/")}`);
+
+	if (gitHistory.length > 0) {
+		// Add all Git history entries (create and modify)
+		gitHistory.forEach(history => {
+			contents.push({
+				section: "note",
+				title: note.data.title,
+				date: Time(history.date.toISOString()).toPlainDate(),
+				link,
+				activityType: history.type
+			});
+		});
+	} else {
+		// Fallback to timestamp if no Git history
+		contents.push({
+			section: "note",
+			title: note.data.title,
+			date: Time(note.data.timestamp.toISOString()).toPlainDate(),
+			link,
+			activityType: "create"
+		});
+	}
 });
 
-// Normalize jottings and add to contents list
+// Process jottings with Git history
 jottings.forEach(jotting => {
-	contents.push({
-		section: "jotting",
-		title: jotting.data.title,
-		date: Time(jotting.data.timestamp.toISOString()).toPlainDate(),
-		link: getRelativeLocaleUrl(locale, `/jotting/${monolocale ? jotting.id : jotting.id.split("/").slice(1).join("/")}`)
-	});
+	const filePath = path.join(process.cwd(), "src", "content", "jotting", monolocale ? `${jotting.id}.md` : `${jotting.id}.md`);
+	const gitHistory = getFileGitHistory(filePath);
+
+	const link = getRelativeLocaleUrl(locale, `/jotting/${monolocale ? jotting.id : jotting.id.split("/").slice(1).join("/")}`);
+
+	if (gitHistory.length > 0) {
+		// Add all Git history entries (create and modify)
+		gitHistory.forEach(history => {
+			contents.push({
+				section: "jotting",
+				title: jotting.data.title,
+				date: Time(history.date.toISOString()).toPlainDate(),
+				link,
+				activityType: history.type
+			});
+		});
+	} else {
+		// Fallback to timestamp if no Git history
+		contents.push({
+			section: "jotting",
+			title: jotting.data.title,
+			date: Time(jotting.data.timestamp.toISOString()).toPlainDate(),
+			link,
+			activityType: "create"
+		});
+	}
 });
 
 // Group content into heatmap cells based on the configured frequency
@@ -117,6 +175,20 @@ if (frequency === "month") {
 		if (gap >= 0 && gap < cells.length) cells[gap].contents.push(content);
 	});
 }
+
+// Helper function to group content by title and activity type
+function groupByTitleAndActivity(items: ContentWithActivity[]) {
+	const map = new Map<string, { create: boolean; modify: boolean; link: string }>();
+	items.forEach(item => {
+		if (!map.has(item.title)) {
+			map.set(item.title, { create: false, modify: false, link: item.link });
+		}
+		const entry = map.get(item.title)!;
+		if (item.activityType === "create") entry.create = true;
+		if (item.activityType === "modify") entry.modify = true;
+	});
+	return Array.from(map.entries());
+}
 ---
 
 <section class:list={["grid gap-1", { "grid-flow-col grid-rows-7": frequency === "day", "grid-cols-13": frequency === "week", "grid-cols-12": frequency === "month" }]}>
@@ -132,18 +204,36 @@ if (frequency === "month") {
 
 				if (notes.length) {
 					if (frequency === "month") {
-						details.push(<p>{t("home.heatmap.note", { count: notes.length })}</p>);
-					} else {
+						const createCount = notes.filter(n => n.activityType === "create").length;
+						const modifyCount = notes.filter(n => n.activityType === "modify").length;
 						details.push(
-							<p class="my-1">{t("home.heatmap.note", { count: notes.length })}：</p>,
+							<p>
+								{t("home.heatmap.note", { count: notes.length })} (创建: {createCount}, 修改: {modifyCount})
+							</p>
+						);
+					} else {
+						details.push(<p class="my-1">{t("home.heatmap.note", { count: notes.length })}：</p>);
+
+						const noteEntries = groupByTitleAndActivity(notes);
+
+						details.push(
 							<ul class="flex flex-col gap-0.5">
-								{notes.map(note => (
-									<li>
-										<a href={note.link} aria-label={note.title} class="ms-1 link">
-											{note.title}
-										</a>
-									</li>
-								))}
+								{noteEntries.map(entry => {
+									const title = entry[0];
+									const info = entry[1];
+									const badges = [];
+									if (info.create) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-green-500/20 text-green-600 dark:text-green-400">创建</span>);
+									if (info.modify) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-blue-500/20 text-blue-600 dark:text-blue-400">修改</span>);
+
+									return (
+										<li class="flex items-center gap-1">
+											<a href={info.link} aria-label={title} class="ms-1 link flex-1">
+												{title}
+											</a>
+											<span class="flex gap-1">{badges}</span>
+										</li>
+									);
+								})}
 							</ul>
 						);
 					}
@@ -151,18 +241,36 @@ if (frequency === "month") {
 
 				if (jottings.length) {
 					if (frequency === "month") {
-						details.push(<p>{t("home.heatmap.jotting", { count: jottings.length })}</p>);
-					} else {
+						const createCount = jottings.filter(j => j.activityType === "create").length;
+						const modifyCount = jottings.filter(j => j.activityType === "modify").length;
 						details.push(
-							<p class="my-1">{t("home.heatmap.jotting", { count: jottings.length })}：</p>,
+							<p>
+								{t("home.heatmap.jotting", { count: jottings.length })} (创建: {createCount}, 修改: {modifyCount})
+							</p>
+						);
+					} else {
+						details.push(<p class="my-1">{t("home.heatmap.jotting", { count: jottings.length })}：</p>);
+
+						const jottingEntries = groupByTitleAndActivity(jottings);
+
+						details.push(
 							<ul class="flex flex-col gap-0.5">
-								{jottings.map(jotting => (
-									<li>
-										<a href={jotting.link} aria-label={jotting.title} class="ms-1 link">
-											{jotting.title}
-										</a>
-									</li>
-								))}
+								{jottingEntries.map(entry => {
+									const title = entry[0];
+									const info = entry[1];
+									const badges = [];
+									if (info.create) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-green-500/20 text-green-600 dark:text-green-400">创建</span>);
+									if (info.modify) badges.push(<span class="text-[10px] px-1 py-0.5 rounded bg-blue-500/20 text-blue-600 dark:text-blue-400">修改</span>);
+
+									return (
+										<li class="flex items-center gap-1">
+											<a href={info.link} aria-label={title} class="ms-1 link flex-1">
+												{title}
+											</a>
+											<span class="flex gap-1">{badges}</span>
+										</li>
+									);
+								})}
 							</ul>
 						);
 					}
