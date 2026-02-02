@@ -18,7 +18,7 @@ draft: false
 
 [^boat]: 图片来源：[Pexels](https://www.pexels.com/photo/white-sailboat-on-water-273886/)
 
-![白色帆船](/images/Pasted-image-20251008212240.png)
+![白色帆船](/images/white_sailboat_on_water.jpg)
 
 ## 绝对路径
 
