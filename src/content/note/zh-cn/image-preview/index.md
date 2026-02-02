@@ -4,7 +4,7 @@ timestamp: 2025-04-04 00:00:00+00:00
 series: Astro
 tags: [Content, Demo]
 description: 演示 Markdown 中图片引用的三种方式：相对路径、绝对路径和外部链接，展示图片优化和管理最佳实践。
-draft: false
+draft: true
 ---
 
 本文演示 Markdown 中三种图片引用方式。
@@ -18,7 +18,7 @@ draft: false
 
 [^boat]: 图片来源：[Pexels](https://www.pexels.com/photo/white-sailboat-on-water-273886/)
 
-![白色帆船](/images/white_sailboat_on_water.jpg)
+![白色帆船](white_sailboat_on_water.jpg)
 
 ## 绝对路径
 
