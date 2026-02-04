@@ -35,7 +35,7 @@ description: MLLM相关基本论文的阅读和思考。
 >
 > _将 Transformer 用于视觉领域，将图像分为一系列图像块，由于不加入归纳偏置，在中小数据集（ImageNet）上效果不如 Resnet，但在大数据集上有很好的效果，一篇非常 solid 的工作，实验非常详细。_
 
-![ViT架构图](/Pasted-image-20251008212240.png)
+![ViT架构图](/image/Pasted-image-20251008212240.png)
 
 首先，提出了将图片（比如 224×224×3）直接切割为一定数量的 patch（比如 196 个 16×16 ），解决了图片直接拉平成向量之后数量太多无法传入 transformer 的问题，将每个 patch 中的向量展平并通过一个线性层进行 embed（变成 196 个 16×16×3=768），在 add 一个位置编码并在最前面concat 一个 class token，这里的 class token 在后面的自注意力层可以与图片向量交互，学习到图片的全局特征，在最后的分类任务中也是直接仅仅使用了这个 token 即可。将得到的 197 \* 768 传入 transformer，这里注意残差和归一化，经过 tranformer 层后该模型的预训练部分就结束了，后面的下游操作就可以根据需要微调了。
 
@@ -58,7 +58,7 @@ description: MLLM相关基本论文的阅读和思考。
 >
 > 一种 zero-shot预训练模型，自然语言监督
 
-![CLIP架构图](/Pasted-image-20251010221331.png)
+![CLIP架构图](/image/Pasted-image-20251010221331.png)
 
 训练的就是两个 Encoder，image_encoder - ResNet or Vision Transformer ，text_encoder - CBOW or Text Transformer，将图片和文本编码到一个维度上，对角线上的即为正样本，进行 L2 归一化以计算余弦相似度，通过对比学习分别计算两个loss，总loss 就是 image 和 text 的 loss 的平均值，这里比较有意思的点就是可以直接通过余弦相似度将多模态映射到同一纬度计算，测试的时候比较有意思的是将每个单独的类别单词加描述该数据集的 prompt，因为在 textEncoder 学习的时候就是一个描述性句子，所以传入的时候用 prompt 包裹更接近训练分布，最后计算和图片的余弦相似度，在测试阶段可以实现 zero-shot。
 
@@ -75,7 +75,7 @@ description: MLLM相关基本论文的阅读和思考。
 >
 > ==🔆实现轻量化，视觉与语言对称编码，抛弃图像上的 CNN==
 
-![ViLT架构图](/Pasted-image-20251011214348.png)
+![ViLT架构图](/image/Pasted-image-20251011214348.png)
 
 预训练模型，在图像部分上作了改进，原来的图像部分都是用的目标检测模型，先通过 CNN 提取特征，再通过 RPN 网络抽取一些 Roi，接着用 NMS 对 Roi 减少数量， Roi 的数量就是序列的长度，最后在通过一个 roi head，这种方法也就是dual-stream approaches。而 ViLt 使用的是 single-stream，也就是只有一个模型，将视觉与语言对称编码，使用相同的方法，与 ViT 在图像上的处理方法相同，将 patch 当作 token，之后加深了交互功能，模型思路很简单，在分类和检索上都有很强泛化性。
 
@@ -83,7 +83,7 @@ description: MLLM相关基本论文的阅读和思考。
 
 把视觉语言模型分类，其中 Clip 属于图 b，对于交互上仅仅使用了点乘，ViLT 属于图 d。
 
-![视觉语言模型分类](/Pasted-image-20251011214403.png)
+![视觉语言模型分类](/image/Pasted-image-20251011214403.png)
 
 ## ALBEF
 
@@ -94,7 +94,7 @@ description: MLLM相关基本论文的阅读和思考。
 >
 > ==🔆在 fusion 前的 ITC loss+动态蒸馏==
 
-![ALBEF架构图](/Pasted-image-20251013205402.png)
+![ALBEF架构图](/image/Pasted-image-20251013205402.png)
 
 ALBEF 的 loss 分为三块，ITC loss 在 embed 但是没有 fusion 的 image 和 text 上计算 loss，同时得出一些负样本，这个负样本可以用于后面 ITM 的 hard-negtive，之后 fusion 后做的 ITM 就是图片文本配对，但是通过传统的配对太简单，这里每个样本采一个 hard negative，增加难度，MLM loss 就是 BERT 里面经典的 mask。
 
@@ -107,9 +107,16 @@ ALBEF 的 loss 分为三块，ITC loss 在 embed 但是没有 fusion 的 image �
 >
 > **翻译**[2111.02358](https://hjfy.top/arxiv/2111.02358)
 >
-> ==🔆分阶段预训练策略，参数共享==
+> ==🔆MOME Transformer, 分阶段预训练策略==
 
-![VLMO架构图](/Pasted-image-20251013215939.png)
+![VLMO架构图](/image/Pasted-image-20251013215939.png)
+
+MOME Transformer主要思路就是把image /text /text+image 的ffn彻底分割，但共享同一个底层的transformer，非常灵活，这也说明了transformer底层参数有很大的利用价值。
+
+另外，分阶段预训练的思想也很有意思，对于文本和图片分别用他们的数据集单独训练，之后再联合起来训练VL-FFN（这里在L-FFN的训练上使用的是V-FFN的transformer参数并冻结，这个现象比较有趣），这种隔离各个部分的思想其实还是受到clip之类的启发，显存需求大但比较灵活
+
+![分阶段预训练](/image/image.png)
+
 
 ## BLIP
 
