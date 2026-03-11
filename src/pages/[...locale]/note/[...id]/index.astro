@@ -38,6 +38,7 @@ const { note } = Astro.props;
 
 // Render markdown content and extract headings for TOC
 const { Content, headings, remarkPluginFrontmatter: frontmatter } = await render(note);
+const showTOC = headings.length > 0;
 
 const t = i18nit(locale);
 ---
@@ -74,9 +75,18 @@ const t = i18nit(locale);
 			<div class="flex gap-5">
 				<section id="markdown-content" class="markdown"><Content /></section>
 				{
-					note.data.toc && (
+					showTOC && (
 						<aside class="hidden sm:block sm:shrink-0 sm:w-50">
-							<div class="sticky top-3 flex flex-col gap-1">
+							<div class="sticky top-3 flex flex-col gap-3">
+								<div class="space-y-1">
+									<div class="flex items-center justify-between text-xs text-secondary">
+										<span>Progress</span>
+										<span id="toc-progress-text">0%</span>
+									</div>
+									<div class="h-1.5 w-full rounded bg-weak/35 overflow-hidden">
+										<div id="toc-progress-bar" class="h-full bg-primary transition-[width] duration-150" style="width: 0%"></div>
+									</div>
+								</div>
 								<h4>{t("note.contents")}</h4>
 								<nav class="overflow-y-auto">
 									<TOC {headings} />
@@ -91,3 +101,49 @@ const t = i18nit(locale);
 		<Position {locale} />
 	</main>
 </Base>
+
+<script>
+	let progressBound = false;
+
+	function updateSidebarProgress() {
+		const content = document.getElementById("markdown-content");
+		const bar = document.getElementById("toc-progress-bar");
+		const text = document.getElementById("toc-progress-text");
+
+		if (!(content && bar && text)) return;
+
+		const contentHeight = content.scrollHeight;
+		const contentTop = content.offsetTop;
+		const viewportHeight = window.innerHeight;
+		const scrollTop = window.scrollY;
+
+		let scrolled;
+		let scrollable;
+
+		if (viewportHeight < contentHeight) {
+			scrolled = Math.max(0, scrollTop - contentTop);
+			scrollable = contentHeight - viewportHeight;
+		} else {
+			scrolled = scrollTop;
+			scrollable = Math.max(0, contentHeight + contentTop - viewportHeight);
+		}
+
+		const progress = scrollable > 0 ? Math.min(1, scrolled / scrollable) : 1;
+		const percent = Math.round(progress * 100);
+
+		bar.setAttribute("style", `width: ${percent}%`);
+		text.textContent = `${percent}%`;
+	}
+
+	function initializeSidebarProgress() {
+		updateSidebarProgress();
+		if (!progressBound) {
+			window.addEventListener("scroll", updateSidebarProgress, { passive: true });
+			window.addEventListener("resize", updateSidebarProgress, { passive: true });
+			progressBound = true;
+		}
+	}
+
+	initializeSidebarProgress();
+	document.addEventListener("astro:after-swap", initializeSidebarProgress);
+</script>

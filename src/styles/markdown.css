@@ -199,6 +199,15 @@
 			text-underline-offset: 0.1em;
 		}
 
+		figure:has(img.center) {
+			align-self: center;
+
+			img.center {
+				display: block;
+				margin-inline: auto;
+			}
+		}
+
 		figure:has(img) {
 			display: inline-block;
 			vertical-align: top;
