@@ -76,18 +76,14 @@ const t = i18nit(locale);
 				<section id="markdown-content" class="markdown"><Content /></section>
 				{
 					showTOC && (
-						<aside class="hidden sm:block sm:shrink-0 sm:w-50">
+						<aside class="hidden sm:block sm:shrink-0 sm:w-44">
 							<div class="sticky top-3 flex flex-col gap-3">
-								<div class="space-y-1">
-									<div class="flex items-center justify-between text-xs text-secondary">
-										<span>Progress</span>
-										<span id="toc-progress-text">0%</span>
+								<div class="flex items-center gap-2">
+									<div class="h-5 w-1.5 rounded bg-weak/35 overflow-hidden shrink-0">
+										<div id="toc-progress-bar" class="w-full bg-primary transition-[height] duration-150" style="height: 0%" />
 									</div>
-									<div class="h-1.5 w-full rounded bg-weak/35 overflow-hidden">
-										<div id="toc-progress-bar" class="h-full bg-primary transition-[width] duration-150" style="width: 0%"></div>
-									</div>
+									<h4>{t("note.contents")}</h4>
 								</div>
-								<h4>{t("note.contents")}</h4>
 								<nav class="overflow-y-auto">
 									<TOC {headings} />
 								</nav>
@@ -108,9 +104,8 @@ const t = i18nit(locale);
 	function updateSidebarProgress() {
 		const content = document.getElementById("markdown-content");
 		const bar = document.getElementById("toc-progress-bar");
-		const text = document.getElementById("toc-progress-text");
 
-		if (!(content && bar && text)) return;
+		if (!(content && bar)) return;
 
 		const contentHeight = content.scrollHeight;
 		const contentTop = content.offsetTop;
@@ -131,8 +126,7 @@ const t = i18nit(locale);
 		const progress = scrollable > 0 ? Math.min(1, scrolled / scrollable) : 1;
 		const percent = Math.round(progress * 100);
 
-		bar.setAttribute("style", `width: ${percent}%`);
-		text.textContent = `${percent}%`;
+		bar.setAttribute("style", `height: ${percent}%`);
 	}
 
 	function initializeSidebarProgress() {
@@ -140,6 +134,14 @@ const t = i18nit(locale);
 		if (!progressBound) {
 			window.addEventListener("scroll", updateSidebarProgress, { passive: true });
 			window.addEventListener("resize", updateSidebarProgress, { passive: true });
+			window.addEventListener("hashchange", updateSidebarProgress);
+			document.addEventListener("click", event => {
+				const element = event.target;
+				if (element instanceof Element && element.closest("a[href^='#']")) {
+					requestAnimationFrame(updateSidebarProgress);
+					setTimeout(updateSidebarProgress, 120);
+				}
+			});
 			progressBound = true;
 		}
 	}
