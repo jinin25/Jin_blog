@@ -22,6 +22,8 @@ description: 多模态基础模型相关论文阅读。
 
 <br>
 
+# GPT系列
+
 ## GPT-4
 
 > [!IMPORTANT] GPT-4
@@ -53,6 +55,7 @@ description: 多模态基础模型相关论文阅读。
 >
 > **链接** [Introducing GPT-5](https://openai.com/index/introducing-gpt-5/)
 
+# LLAMA LLAVA系列
 
 ## Llama 3.2
 
@@ -83,6 +86,92 @@ description: 多模态基础模型相关论文阅读。
 >
 > **Demo** [Demo](https://huggingface.co/spaces/lixin4ever/VideoLLaMA3)
 
+
+## LLaVA
+
+> [!NOTE] LLaVA
+> **Arxiv**[2304.08485](https://arxiv.org/abs/2304.08485)
+>
+> **翻译**[2304.08485](https://hjfy.top/arxiv/2304.08485)
+> 
+> ==🔆==
+
+## LLaVA-OneVision
+
+> [!NOTE] LLaVA-OneVision
+> **Arxiv** [2408.03326](https://arxiv.org/abs/2408.03326)
+>
+> **翻译**[2408.03326](https://hjfy.top/arxiv/2408.03326)
+
+## LLaMA-Adapter
+
+> [!NOTE] LLaMA-Adapter
+> **Arxiv** [2303.16199](https://arxiv.org/abs/2303.16199)
+>
+> **翻译**[2303.16199](https://hjfy.top/arxiv/2303.16199)
+>
+> ==🔆prompt Adapter, 对注意力分数进行门控==
+
+![LLAMA-Adapter](/image/LLAMA_Adapter.png){.center style="width:85%;"}
+
+这是一篇在Alpaca之后的工作，在微调上，Alpaca主要做的就是对LLAMA全量进行微调，而这篇Adapter的工作对LLAMA本身参数冻结，在中后期的Transformer，每层增加一个Adapter从0开始进行提示词微调，具体来说，用最后一个预测的token做Q，prompt+text+token做KV，之后Adapter，原model分别softmax，并用gate控制Adapter的权重，最后相加得到Attention 分数，公式如下：$$S_g^l = \left[ \text{softmax}(S_l^K) \cdot \tanh(g_l);\ \text{softmax}(S_l^{M+1}) \right]^T$$，实现了轻量化微调，并且把gate机制融入了attention，这是Flamingo没有做到的。
+
+另外，在多模态上，作者只是将不同尺度image作为token，拼接转化维度和prompt相加拼接，相当于把image当成prompt传入模型了，也是充分利用了Adapter的优势，是一个很好的角度，在提示词工程的多模态扩展中，可以把图片信息融入提示词中。
+
+
+# Qwen 系列
+## Qwen-VL
+
+> [!NOTE] Qwen-VL
+> **Arxiv** [2308.12966](https://arxiv.org/abs/2308.12966)
+>
+> **翻译**[2308.12966](https://hjfy.top/arxiv/2308.12966)
+
+## Qwen2-VL
+
+> [!NOTE] Qwen2-VL
+> **Arxiv** [2409.12191](https://arxiv.org/abs/2409.12191)
+>
+> **翻译**[2409.12191](https://hjfy.top/arxiv/2409.12191)
+
+## Qwen2.5-VL
+
+> [!NOTE] Qwen2.5-VL
+> **Arxiv** [2502.13923](https://arxiv.org/abs/2502.13923)
+>
+> **翻译**[2502.13923](https://hjfy.top/arxiv/2502.13923)
+
+# Claude
+## Claude 3
+
+> [!IMPORTANT] Claude 3
+> **发布** Anthropic
+>
+> **PDF** [Claude 3 Model Card](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf)
+
+# Gemini系列
+
+## Gemini
+
+> [!IMPORTANT] Gemini
+> **发布** Google
+>
+> **PDF** [Gemini 1 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf)
+
+
+## Gemini 1.5
+
+> [!IMPORTANT] Gemini 1.5
+> **发布** Google
+>
+> **PDF** [Gemini 1.5 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
+
+
+# Deepseek
+Coming Soon~
+
+
+# Others
 ## Emu3
 
 > [!NOTE] Emu3
@@ -121,29 +210,7 @@ description: 多模态基础模型相关论文阅读。
 
 
 
-## Claude 3
 
-> [!IMPORTANT] Claude 3
-> **发布** Anthropic
->
-> **PDF** [Claude 3 Model Card](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf)
-
-
-
-## Gemini
-
-> [!IMPORTANT] Gemini
-> **发布** Google
->
-> **PDF** [Gemini 1 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf)
-
-
-## Gemini 1.5
-
-> [!IMPORTANT] Gemini 1.5
-> **发布** Google
->
-> **PDF** [Gemini 1.5 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
 
 
 

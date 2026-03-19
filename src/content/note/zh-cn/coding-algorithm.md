@@ -28,7 +28,7 @@ Hash表
 
 搜索与图论 ：
 ~~DFS~~
-BFS
+~~BFS~~
 树与图的遍历：拓扑排序
 最短路
 最小生成树
@@ -107,6 +107,29 @@ void dfs(int x,int sum)
     
 }           
 
+```
+bfs模板：
+(用**队列**表示已经访问过的点，每次从队头取出并访问所有邻居，相当于从一个点开始，逐层向外寻找)
+```python
+queue<int> q;
+st[1] = true; // 表示1号点已经被遍历过
+q.push(1);
+
+while (q.size())
+{
+    int t = q.front();
+    q.pop();
+
+    for (int i = h[t]; i != -1; i = ne[i])
+    {
+        int j = e[i];
+        if (!st[j])
+        {
+            st[j] = true; // 表示点j已经被遍历过
+            q.push(j);
+        }
+    }
+}
 ```
 
 
