@@ -2,7 +2,7 @@
 title: "PaperReading: MLLM2 - Foundation Models"
 timestamp: 2026-01-31 00:00:00+08:00
 series: PaperReading
-tags: [MLLM, Paper, Foundation]
+tags: [MLLM, Paper]
 description: 多模态基础模型相关论文阅读。
 ---
 
@@ -30,7 +30,6 @@ description: 多模态基础模型相关论文阅读。
 > **Arxiv** [2303.08774](https://arxiv.org/abs/2303.08774)
 >
 > **翻译** [2303.08774](https://hjfy.top/arxiv/2303.08774)
->
 
 ## GPT-4o
 
@@ -38,7 +37,6 @@ description: 多模态基础模型相关论文阅读。
 > **发布** OpenAI
 >
 > **链接** [Hello GPT-4o](https://openai.com/index/hello-gpt-4o/)
->
 
 ## GPT-4V
 
@@ -46,7 +44,6 @@ description: 多模态基础模型相关论文阅读。
 > **发布** OpenAI
 >
 > **PDF** [GPT-4V System Card](https://cdn.openai.com/papers/GPTV_System_Card.pdf)
->
 
 ## GPT-5
 
@@ -65,7 +62,6 @@ description: 多模态基础模型相关论文阅读。
 > **链接** [Llama 3.2 Blog](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/)
 >
 > **Demo** [Demo](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct)
->
 
 ## Llama 3 Herd
 
@@ -73,7 +69,6 @@ description: 多模态基础模型相关论文阅读。
 > **Arxiv** [2407.21783](https://arxiv.org/abs/2407.21783)
 >
 > **翻译** [2407.21783](https://hjfy.top/arxiv/2407.21783)
->
 
 ## VideoLLaMA 3
 
@@ -85,23 +80,6 @@ description: 多模态基础模型相关论文阅读。
 > **代码** [Github](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
 >
 > **Demo** [Demo](https://huggingface.co/spaces/lixin4ever/VideoLLaMA3)
-
-
-## LLaVA
-
-> [!NOTE] LLaVA
-> **Arxiv**[2304.08485](https://arxiv.org/abs/2304.08485)
->
-> **翻译**[2304.08485](https://hjfy.top/arxiv/2304.08485)
-> 
-> ==🔆==
-
-## LLaVA-OneVision
-
-> [!NOTE] LLaVA-OneVision
-> **Arxiv** [2408.03326](https://arxiv.org/abs/2408.03326)
->
-> **翻译**[2408.03326](https://hjfy.top/arxiv/2408.03326)
 
 ## LLaMA-Adapter
 
@@ -118,8 +96,41 @@ description: 多模态基础模型相关论文阅读。
 
 另外，在多模态上，作者只是将不同尺度image作为token，拼接转化维度和prompt相加拼接，相当于把image当成prompt传入模型了，也是充分利用了Adapter的优势，是一个很好的角度，在提示词工程的多模态扩展中，可以把图片信息融入提示词中。
 
+## LLaVA
+
+> [!IMPORTANT] LLaVA
+> **Arxiv**[2304.08485](https://arxiv.org/abs/2304.08485)
+>
+> **翻译**[2304.08485](https://hjfy.top/arxiv/2304.08485)
+>
+> ==🔆linear连接==
+
+![LLAVA](/image/LLAVA.png){.center style="width:85%;"}
+
+一种有别于Flamingo的Q-former的范式，架构非常简单，就是在视觉和怨言模型之间直接用线性层连接。具体来说，训练分为两阶段，第一阶段pretrain，冻结语言模型和视觉模型，训练一个线性层，让线性层学会翻译，第二阶段finetune，解冻线性层和LLM，数据来源于GPT-4生成好的视觉描述。证明了视觉和语言的对齐不需要复杂的模块，或者说不应该将更多的注意力放在对齐视觉输出和语言输入上，而后的mllm模型大多用的都是这种范式。
+
+## LLaVA-1.5
+
+> [!NOTE] LLaVA-1.5
+> **Arxiv** [2310.03744](https://arxiv.org/abs/2310.03744)
+>
+> **翻译** [2310.03744](https://hjfy.top/arxiv/2310.03744)
+>
+> ==🔆Linear -> mlp，适应高分辨率图片==
+>
+ ![LLAVA-1.5](/image/LLAVA_1_5_HD.png){.center style="width:85%;"}
+
+在LLAVa上的改进工作，首先在架构上，将linear层改成了mlp层，引入了非线性。另外，在HD模型中，尝试了高分辨率图片输入，作者给出的方案是，一方面，将图片先split，对于每个patch做encode，然后展开，传入LLM，另一方面，直接将高分辨率图片压缩至低分标绿输入LLM，保证了全局性，是对高分辨率图像的一种好的处理方法。
+
+## LLaVA-OneVision
+
+> [!NOTE] LLaVA-OneVision
+> **Arxiv** [2408.03326](https://arxiv.org/abs/2408.03326)
+>
+> **翻译**[2408.03326](https://hjfy.top/arxiv/2408.03326)
 
 # Qwen 系列
+
 ## Qwen-VL
 
 > [!NOTE] Qwen-VL
@@ -142,6 +153,7 @@ description: 多模态基础模型相关论文阅读。
 > **翻译**[2502.13923](https://hjfy.top/arxiv/2502.13923)
 
 # Claude
+
 ## Claude 3
 
 > [!IMPORTANT] Claude 3
@@ -158,7 +170,6 @@ description: 多模态基础模型相关论文阅读。
 >
 > **PDF** [Gemini 1 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf)
 
-
 ## Gemini 1.5
 
 > [!IMPORTANT] Gemini 1.5
@@ -166,12 +177,12 @@ description: 多模态基础模型相关论文阅读。
 >
 > **PDF** [Gemini 1.5 Report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
 
-
 # Deepseek
+
 Coming Soon~
 
-
 # Others
+
 ## Emu3
 
 > [!NOTE] Emu3
@@ -180,8 +191,6 @@ Coming Soon~
 > **翻译** [2409.18869](https://hjfy.top/arxiv/2409.18869)
 >
 > **代码** [Github](https://github.com/baaivision/Emu3)
-
-
 
 ## Pixtral-12B
 
@@ -199,20 +208,12 @@ Coming Soon~
 >
 > **代码** [Github](https://github.com/salesforce/LAVIS/tree/xgen-mm)
 
-
-
 ## Chameleon
 
 > [!NOTE] Chameleon
 > **Arxiv** [2405.09818](https://arxiv.org/abs/2405.09818)
 >
 > **翻译** [2405.09818](https://hjfy.top/arxiv/2405.09818)
-
-
-
-
-
-
 
 ## Fuyu-8B
 
@@ -242,8 +243,6 @@ Coming Soon~
 > **Arxiv** [2310.09199](https://arxiv.org/abs/2310.09199)
 >
 > **翻译** [2310.09199](https://hjfy.top/arxiv/2310.09199)
-
-
 
 ## LaVIT
 
@@ -291,8 +290,6 @@ Coming Soon~
 > **代码** [Github](https://github.com/VPGTrans/VPGTrans)
 >
 > **Demo** [Demo](https://3fc7715dbc44234a7f.gradio.live/)
-
-
 
 ## PaLM-E
 
@@ -358,4 +355,3 @@ Coming Soon~
 > **翻译** [2206.06336](https://hjfy.top/arxiv/2206.06336)
 >
 > **代码** [Github](https://github.com/microsoft/unilm)
-
