@@ -52,7 +52,7 @@ description: 多模态基础模型相关论文阅读。
 >
 > **链接** [Introducing GPT-5](https://openai.com/index/introducing-gpt-5/)
 
-# LLAMA LLAVA系列
+# LLAMA 系列
 
 ## Llama 3.2
 
@@ -96,6 +96,11 @@ description: 多模态基础模型相关论文阅读。
 
 另外，在多模态上，作者只是将不同尺度image作为token，拼接转化维度和prompt相加拼接，相当于把image当成prompt传入模型了，也是充分利用了Adapter的优势，是一个很好的角度，在提示词工程的多模态扩展中，可以把图片信息融入提示词中。
 
+
+
+# LLAVA系列
+
+
 ## LLaVA
 
 > [!IMPORTANT] LLaVA
@@ -122,18 +127,34 @@ description: 多模态基础模型相关论文阅读。
 
 在LLAVa上的改进工作，首先在架构上，将linear层改成了mlp层，引入了非线性。另外，在HD模型中，尝试了高分辨率图片输入，作者给出的方案是，一方面，将图片先split，对于每个patch做encode，然后展开，传入LLM，另一方面，直接将高分辨率图片压缩至低分标绿输入LLM，保证了全局性，是对高分辨率图像的一种好的处理方法。
 
+
+
 ## LLaVA-OneVision
 
 > [!NOTE] LLaVA-OneVision
+>
+>  **Blog** [LLaVA-NeXT Blog](https://llava-vl.github.io/blog/)
+> 
 > **Arxiv** [2408.03326](https://arxiv.org/abs/2408.03326)
 >
 > **翻译**[2408.03326](https://hjfy.top/arxiv/2408.03326)
+>
+> ==🔆multi-patch，unified，适用于image/video/3D==
+
+
+这是一篇对NeXT不同版本的总结，作者把注意力了放在了怎么处理其他模态的输入以及怎么实现一个unified模型。在架构上，首先，Anyres模块将视频的每一帧视为图片，先split再encode，为了handle more frams，使用了linear scaling ，这是一种类似于RoPE的旋转缩放的方式。另外，还增加了DPO的训练阶段，由于人工偏好很贵，所以这里作者使用LLM生成reward，先做 detailed caption（相当于把视频压缩成文本证据），再用文本 LLM 在“证据”上做评审/打分/偏好对生成，再做 DPO。
+
+并且，实现了一个unified MLLM，可以支持多图像、 多帧（视频）、多视图（3D），并且，作者在实验中发现，将图片视频混合输入模型训练，效果是最好的。这篇最新的工作还提出了一个M4-Instruct的dataset，多图像，多模态数据集，是可以用于SFT的训练微调。
+
+另外，LLaVA系列的blog里面，笔者最喜欢这篇[LLaVA-NeXT: What Else Influences Visual Instruction Tuning Beyond Data?](https://llava-vl.github.io/blog/2024-05-25-llava-next-ablations/)，数据对于MLLM的训练重要性毋庸置疑，但是在数据之外，架构训练策略之类因素不应该被忽略，作者通过消融实验，说明LLM 的模型尺寸扩展比图像编码器更能有效地提升性能。后者的性能提升更多地取决于其视觉输入配置（分辨率、标记数），而非模型尺寸。
+视觉信号的表示与原始像素空间的分辨率和特征空间中的标记数量均相关，且缩放分辨率比缩放标记数量更有效，因此推荐使用带有池化的 AnyRes 策略。并且在学习策略上，引入一个专注于从高质量知识中学习的阶段至关重要，而非使用网络规模的低质量数据。也就是说，数据质量比数据量重要得多。
+
 
 # Qwen 系列
 
 ## Qwen-VL
 
-> [!NOTE] Qwen-VL
+> [!IMPORTANT] Qwen-VL
 > **Arxiv** [2308.12966](https://arxiv.org/abs/2308.12966)
 >
 > **翻译**[2308.12966](https://hjfy.top/arxiv/2308.12966)

@@ -46,7 +46,7 @@ description: MLLM相关基本论文的阅读和思考。
 
 <br>
 
-## 视觉语言模型 CLIP
+## CLIP
 
 > [!IMPORTANT] CLIP
 > **Arxiv：**[2103.00020](https://arxiv.org/pdf/2103.00020)
@@ -57,7 +57,7 @@ description: MLLM相关基本论文的阅读和思考。
 >
 > ==🔆双编码器，两个 Encoder 将图片与文本对应，对比学习==
 >
-> 一种 zero-shot预训练模型，自然语言监督
+> _一种 zero-shot预训练模型，自然语言监督_
 
 ![CLIP架构图](/image/Pasted-image-20251010221331.png)
 
