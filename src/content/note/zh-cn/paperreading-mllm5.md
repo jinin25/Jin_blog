@@ -20,7 +20,19 @@ description: 多模态思维链相关论文阅读。
 > [!WARNING] 需注意
 > 有争议或需要特别注意的论文,橙色
 
-<br>
+## VaLR
+
+> [!NOTE] VaLR
+> **Arxiv** [2602.04476](https://arxiv.org/abs/2602.04476)
+>
+> **翻译** [2602.04476](https://hjfy.top/arxiv/2602.04476)
+
+## RED
+
+> [!NOTE] RED
+> **Arxiv** [2507.07685](https://arxiv.org/abs/2507.07685)
+>
+> **翻译** [2507.07685](https://hjfy.top/arxiv/2507.07685)
 
 ## Insight-V
 
@@ -48,6 +60,13 @@ description: 多模态思维链相关论文阅读。
 > **翻译** [2403.16999](https://hjfy.top/arxiv/2403.16999)
 >
 > **代码** [Github](https://github.com/deepcs233/Visual-CoT)
+
+## 检索增强 CoT
+
+> [!NOTE] 检索增强 CoT
+> **Arxiv** [2312.01714](https://arxiv.org/abs/2312.01714)
+>
+> **翻译** [2312.01714](https://hjfy.top/arxiv/2312.01714)
 
 ## CCoT
 
