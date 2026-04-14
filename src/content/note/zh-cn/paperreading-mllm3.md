@@ -1,11 +1,9 @@
 ---
-title: "PaperReading: MLLM_3 - Multimodal Hallucination"
-timestamp: 2026-01-31 00:00:00+08:00
+title: "PaperReading: MLLM_3 - Cross-Modal Reasoning"
+timestamp: 2026-04-14 00:00:00+08:00
 series: PaperReading
-tags: [MLLM, Paper, Hallucination]
-description: 多模态大语言模型幻觉相关论文阅读。
-draft: True
- 
+tags: [MLLM, Paper, Reasoning]
+description: Cross-Modal Reasoning 相关论文阅读。
 ---
 
 ### Description
@@ -24,397 +22,212 @@ draft: True
 
 <br>
 
-## Look Twice Before You Answer
+## IdealGPT
 
-> [!NOTE] MemVR
-> **Arxiv** [2410.03577](https://arxiv.org/abs/2410.03577)
+> [!NOTE] IdealGPT (2023)
+> **Arxiv** [2305.14985](https://arxiv.org/abs/2305.14985)
 >
-> **翻译** [2410.03577](https://hjfy.top/arxiv/2410.03577)
+> **翻译** [2305.14985](https://hjfy.top/arxiv/2305.14985)
 >
-> **代码** [Github](https://github.com/1zhou-Wang/MemVR)
-
-## Interpreting and Editing Vision-Language Representations
-
-> [!NOTE] VL-Interp
-> **Arxiv** [2410.02762](https://arxiv.org/abs/2410.02762)
->
-> **翻译** [2410.02762](https://hjfy.top/arxiv/2410.02762)
->
-> **代码** [Github](https://github.com/nickjiang2378/vl-interp/)
-
-## FIHA
-
-> [!NOTE] FIHA
-> **Arxiv** [2409.13612](https://arxiv.org/abs/2409.13612)
->
-> **翻译** [2409.13612](https://hjfy.top/arxiv/2409.13612)
-
-## Alleviating Hallucination with Active Retrieval Augmentation
-
-> [!NOTE] Active RAG
-> **Arxiv** [2408.00555](https://arxiv.org/abs/2408.00555)
->
-> **翻译** [2408.00555](https://hjfy.top/arxiv/2408.00555)
-
-## PAI
-
-> [!NOTE] PAI
-> **Arxiv** [2407.21771](https://arxiv.org/abs/2407.21771)
->
-> **翻译** [2407.21771](https://hjfy.top/arxiv/2407.21771)
->
-> **代码** [Github](https://github.com/LALBJ/PAI)
-
-## R-Bench
-
-> [!NOTE] R-Bench
-> **Arxiv** [2406.16449](https://arxiv.org/abs/2406.16449)
->
-> **翻译** [2406.16449](https://hjfy.top/arxiv/2406.16449)
->
-> **代码** [Github](https://github.com/mrwu-mac/R-Bench)
-
-## AGLA
-
-> [!NOTE] AGLA
-> **Arxiv** [2406.12718](https://arxiv.org/abs/2406.12718)
->
-> **翻译** [2406.12718](https://hjfy.top/arxiv/2406.12718)
+> **代码** [Github Search](https://github.com/search?q=IdealGPT&type=repositories)
 >
-> **代码** [Github](https://github.com/Lackel/AGLA)
-
-## CODE
-
-> [!NOTE] CODE
-> **Arxiv** [2406.01920](https://arxiv.org/abs/2406.01920)
+> **模态** T, I
 >
-> **翻译** [2406.01920](https://hjfy.top/arxiv/2406.01920)
-
-## Data Augmented Contrastive Tuning
-
-> [!NOTE] DACT
-> **Arxiv** [2405.18654](https://arxiv.org/abs/2405.18654)
+> **推理方式** 通过 GPT 迭代分解图像问题并回答子问题
 >
-> **翻译** [2405.18654](https://hjfy.top/arxiv/2405.18654)
+> **任务** VQA, Text Entailment
 
-## VDGD
+## AssistGPT
 
-> [!NOTE] VDGD
-> **Arxiv** [2405.15683](https://arxiv.org/abs/2405.15683)
+> [!NOTE] AssistGPT (2023)
+> **Arxiv** [2306.08640](https://arxiv.org/abs/2306.08640)
 >
-> **翻译** [2405.15683](https://hjfy.top/arxiv/2405.15683)
-
-## Fine-Grained AI Feedback
-
-> [!NOTE] AI Feedback
-> **Arxiv** [2404.14233](https://arxiv.org/abs/2404.14233)
+> **翻译** [2306.08640](https://hjfy.top/arxiv/2306.08640)
 >
-> **翻译** [2404.14233](https://hjfy.top/arxiv/2404.14233)
-
-## Instruction Contrastive Decoding
-
-> [!NOTE] ICD
-> **Arxiv** [2403.18715](https://arxiv.org/abs/2403.18715)
+> **代码** [Github](https://github.com/showlab/assistgpt)
 >
-> **翻译** [2403.18715](https://hjfy.top/arxiv/2403.18715)
-
-## Counterfactual Inception
-
-> [!NOTE] Counterfactual
-> **Arxiv** [2403.13513](https://arxiv.org/abs/2403.13513)
+> **模态** T, I, V
 >
-> **翻译** [2403.13513](https://hjfy.top/arxiv/2403.13513)
+> **推理方式** Plan-Execute-Inspect + 外部工具协同
 >
-> **代码** [Github](https://github.com/IVY-LVLM/Counterfactual-Inception)
+> **任务** VQA, Causal Reasoning
 
-## Bootstrapped Preference Optimization
+## ProViQ
 
-> [!NOTE] BPO
-> **Arxiv** [2403.08730](https://arxiv.org/abs/2403.08730)
+> [!NOTE] ProViQ (2024)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=ProViQ&searchtype=all&source=header)
 >
-> **翻译** [2403.08730](https://hjfy.top/arxiv/2403.08730)
-
-## LLaVA-Align
-
-> [!NOTE] LLaVA-Align
-> **Arxiv** [2403.05262](https://arxiv.org/abs/2403.05262)
+> **翻译** 待补充
 >
-> **翻译** [2403.05262](https://hjfy.top/arxiv/2403.05262)
+> **代码** [Github Search](https://github.com/search?q=ProViQ&type=repositories)
 >
-> **代码** [Github](https://github.com/yfzhang114/LLaVA-Align)
-
-## HALC
-
-> [!NOTE] HALC
-> **Arxiv** [2403.00425](https://arxiv.org/abs/2403.00425)
+> **模态** T, V
 >
-> **翻译** [2403.00425](https://hjfy.top/arxiv/2403.00425)
+> **推理方式** 生成并执行 Python 程序处理视频子任务
 >
-> **代码** [Github](https://github.com/BillChan226/HALC)
+> **任务** VideoVQA
 
-## IBD
+## MM-REACT
 
-> [!NOTE] IBD
-> **Arxiv** [2402.18476](https://arxiv.org/abs/2402.18476)
+> [!NOTE] MM-REACT (2023)
+> **Arxiv** [2303.11381](https://arxiv.org/abs/2303.11381)
 >
-> **翻译** [2402.18476](https://hjfy.top/arxiv/2402.18476)
-
-## Less is More
-
-> [!NOTE] Less is More
-> **Arxiv** [2402.14545](https://arxiv.org/abs/2402.14545)
+> **翻译** [2303.11381](https://hjfy.top/arxiv/2303.11381)
 >
-> **翻译** [2402.14545](https://hjfy.top/arxiv/2402.14545)
+> **代码** [Github Search](https://github.com/search?q=MM-REACT&type=repositories)
 >
-> **代码** [Github](https://github.com/yuezih/less-is-more)
-
-## LogicCheckGPT
-
-> [!NOTE] LogicCheckGPT
-> **Arxiv** [2402.11622](https://arxiv.org/abs/2402.11622)
+> **模态** T, I, V
 >
-> **翻译** [2402.11622](https://hjfy.top/arxiv/2402.11622)
+> **推理方式** 调用 CV 工具处理图像/视频子任务
 >
-> **代码** [Github](https://github.com/Hyperwjf/LogicCheckGPT)
+> **任务** VQA, VideoVQA
 
-## CorrelationQA
+## VisualReasoner
 
-> [!NOTE] CorrelationQA
-> **Arxiv** [2402.03757](https://arxiv.org/abs/2402.03757)
+> [!NOTE] VisualReasoner (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VisualReasoner&searchtype=all&source=header)
 >
-> **翻译** [2402.03757](https://hjfy.top/arxiv/2402.03757)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/MasaiahHan/CorrelationQA)
-
-## EasyDetect
-
-> [!NOTE] EasyDetect
-> **Arxiv** [2402.03190](https://arxiv.org/abs/2402.03190)
+> **代码** [Github Search](https://github.com/search?q=VisualReasoner&type=repositories)
 >
-> **翻译** [2402.03190](https://hjfy.top/arxiv/2402.03190)
+> **模态** T, I
 >
-> **代码** [Github](https://github.com/OpenKG-ORG/EasyDetect)
-
-## Hallucination Survey
-
-> [!NOTE] Survey
-> **Arxiv** [2402.00253](https://arxiv.org/abs/2402.00253)
+> **推理方式** Least-to-Most 多步视觉推理 + 外部 CV 工具 + 数据合成
 >
-> **翻译** [2402.00253](https://hjfy.top/arxiv/2402.00253)
+> **任务** GQA, VQA
 
-## Temporal Insight Enhancement
+## Multi-model thought
 
-> [!NOTE] TIE
-> **Arxiv** [2401.09861](https://arxiv.org/abs/2401.09861)
+> [!NOTE] Multi-model thought (2025a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Multi-model%20thought&searchtype=all&source=header)
 >
-> **翻译** [2401.09861](https://hjfy.top/arxiv/2401.09861)
-
-## HalOwl
-
-> [!NOTE] HalOwl
-> **Arxiv** [2312.06968](https://arxiv.org/abs/2312.06968)
+> **翻译** 待补充
 >
-> **翻译** [2312.06968](https://hjfy.top/arxiv/2312.06968)
+> **代码** [Github Search](https://github.com/search?q=Multi-model%20thought&type=repositories)
 >
-> **代码** [Github](https://github.com/X-PLUG/mPLUG-HalOwl/tree/main/hacl)
-
-## MOCHa
-
-> [!NOTE] MOCHa
-> **Arxiv** [2312.03631](https://arxiv.org/abs/2312.03631)
+> **模态** T, I
 >
-> **翻译** [2312.03631](https://hjfy.top/arxiv/2312.03631)
+> **推理方式** 外部工具 (Visual Sketchpad)
 >
-> **代码** [Github](https://github.com/assafbk/mocha_code)
+> **任务** Geometry, Math, VQA
 
-## FOHE
+## FaST
 
-> [!NOTE] FOHE
-> **Arxiv** [2312.01701](https://arxiv.org/abs/2312.01701)
+> [!NOTE] FaST (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=FaST&searchtype=all&source=header)
 >
-> **翻译** [2312.01701](https://hjfy.top/arxiv/2312.01701)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/Anonymousanoy/FOHE)
-
-## RLHF-V
-
-> [!NOTE] RLHF-V
-> **Arxiv** [2312.00849](https://arxiv.org/abs/2312.00849)
+> **代码** [Github Search](https://github.com/search?q=FaST&type=repositories)
 >
-> **翻译** [2312.00849](https://hjfy.top/arxiv/2312.00849)
+> **模态** T, I
 >
-> **代码** [Github](https://github.com/RLHF-V/RLHF-V)
+> **推理方式** 系统切换适配器 (快思考/慢思考机制)
 >
-> **Demo** [Demo](http://120.92.209.146:8081/)
+> **任务** VQA
 
-## OPERA
+## ICoT
 
-> [!NOTE] OPERA
-> **Arxiv** [2311.17911](https://arxiv.org/abs/2311.17911)
+> [!NOTE] ICoT (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=ICoT&searchtype=all&source=header)
 >
-> **翻译** [2311.17911](https://hjfy.top/arxiv/2311.17911)
->
-> **代码** [Github](https://github.com/shikiw/OPERA)
-
-## VCD
-
-> [!NOTE] VCD
-> **Arxiv** [2311.16922](https://arxiv.org/abs/2311.16922)
+> **翻译** 待补充
 >
-> **翻译** [2311.16922](https://hjfy.top/arxiv/2311.16922)
+> **代码** [Github Search](https://github.com/search?q=ICoT&type=repositories)
 >
-> **代码** [Github](https://github.com/DAMO-NLP-SG/VCD)
-
-## HA-DPO
-
-> [!NOTE] HA-DPO
-> **Arxiv** [2311.16839](https://arxiv.org/abs/2311.16839)
+> **模态** T, I
 >
-> **翻译** [2311.16839](https://hjfy.top/arxiv/2311.16839)
+> **推理方式** ADS 生成交错视觉-文本推理链
 >
-> **代码** [Github](https://github.com/opendatalab/HA-DPO)
+> **任务** VQA
 
-## Visual Supervision
+## Image-of-Thought
 
-> [!NOTE] Visual Supervision
-> **Arxiv** [2311.16479](https://arxiv.org/abs/2311.16479)
+> [!NOTE] Image-of-Thought (2024b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Image-of-Thought&searchtype=all&source=header)
 >
-> **翻译** [2311.16479](https://hjfy.top/arxiv/2311.16479)
-
-## HalluciDoctor
-
-> [!NOTE] HalluciDoctor
-> **Arxiv** [2311.13614](https://arxiv.org/abs/2311.13614)
+> **翻译** 待补充
 >
-> **翻译** [2311.13614](https://hjfy.top/arxiv/2311.13614)
+> **代码** [Github Search](https://github.com/search?q=Image-of-Thought&type=repositories)
 >
-> **代码** [Github](https://github.com/Yuqifan1117/HalluciDoctor)
-
-## AMBER
-
-> [!NOTE] AMBER
-> **Arxiv** [2311.07397](https://arxiv.org/abs/2311.07397)
+> **模态** T, I
 >
-> **翻译** [2311.07397](https://hjfy.top/arxiv/2311.07397)
+> **推理方式** IoT Prompting 分步提取视觉 rationale
 >
-> **代码** [Github](https://github.com/junyangwang0410/AMBER)
+> **任务** VQA
 
-## FAITHSCORE
+## CoTDiffusion
 
-> [!NOTE] FAITHSCORE
-> **Arxiv** [2311.01477](https://arxiv.org/abs/2311.01477)
+> [!NOTE] CoTDiffusion (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=CoTDiffusion&searchtype=all&source=header)
 >
-> **翻译** [2311.01477](https://hjfy.top/arxiv/2311.01477)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/bcdnlp/FAITHSCORE)
-
-## Woodpecker
-
-> [!IMPORTANT] Woodpecker
-> **Arxiv** [2310.16045](https://arxiv.org/abs/2310.16045)
+> **代码** [Github Search](https://github.com/search?q=CoTDiffusion&type=repositories)
 >
-> **翻译** [2310.16045](https://hjfy.top/arxiv/2310.16045)
+> **模态** T, I
 >
-> **代码** [Github](https://github.com/BradyFU/Woodpecker)
+> **推理方式** 外部算法生成子目标图像后执行动作
 >
-> **Demo** [Demo](https://deb6a97bae6fab67ae.gradio.live/)
+> **任务** Robotics
 
-## NOPE
+## T-SciQ
 
-> [!NOTE] NOPE
-> **Arxiv** [2310.05338](https://arxiv.org/abs/2310.05338)
+> [!NOTE] T-SciQ (2024e)
+> **Arxiv** [2305.03453](https://arxiv.org/abs/2305.03453)
 >
-> **翻译** [2310.05338](https://hjfy.top/arxiv/2310.05338)
-
-## HallE-Switch
-
-> [!NOTE] HallE-Switch
-> **Arxiv** [2310.01779](https://arxiv.org/abs/2310.01779)
+> **翻译** [2305.03453](https://hjfy.top/arxiv/2305.03453)
 >
-> **翻译** [2310.01779](https://hjfy.top/arxiv/2310.01779)
+> **代码** [Github Search](https://github.com/search?q=T-SciQ&type=repositories)
 >
-> **代码** [Github](https://github.com/bronyayang/HallE_Switch)
-
-## LURE
-
-> [!NOTE] LURE
-> **Arxiv** [2310.00754](https://arxiv.org/abs/2310.00754)
+> **模态** T, I
 >
-> **翻译** [2310.00754](https://hjfy.top/arxiv/2310.00754)
+> **推理方式** 模型内生推理能力 (Model-Intrinsic)
 >
-> **代码** [Github](https://github.com/YiyangZhou/LURE)
+> **任务** ScienceQA
 
-## LLaVA-RLHF
+## Visual-CoT
 
-> [!NOTE] LLaVA-RLHF
-> **Arxiv** [2309.14525](https://arxiv.org/abs/2309.14525)
+> [!NOTE] Visual-CoT (2023)
+> **Arxiv** [2403.16999](https://arxiv.org/abs/2403.16999)
 >
-> **翻译** [2309.14525](https://hjfy.top/arxiv/2309.14525)
+> **翻译** [2403.16999](https://hjfy.top/arxiv/2403.16999)
 >
-> **代码** [Github](https://github.com/llava-rlhf/LLaVA-RLHF)
+> **代码** [Github](https://github.com/deepcs233/Visual-CoT)
 >
-> **Demo** [Demo](http://pitt.lti.cs.cmu.edu:7890/)
-
-## Agnosia
-
-> [!NOTE] Agnosia
-> **Arxiv** [2309.04041](https://arxiv.org/abs/2309.04041)
+> **模态** T, I
 >
-> **翻译** [2309.04041](https://hjfy.top/arxiv/2309.04041)
-
-## CIEM
-
-> [!NOTE] CIEM
-> **Arxiv** [2309.02301](https://arxiv.org/abs/2309.02301)
+> **推理方式** 模型内生推理能力 (Model-Intrinsic)
 >
-> **翻译** [2309.02301](https://hjfy.top/arxiv/2309.02301)
+> **任务** VQA, DocQA, ChartQA
 
-## HaELM
+## VoCoT
 
-> [!NOTE] HaELM
-> **Arxiv** [2308.15126](https://arxiv.org/abs/2308.15126)
+> [!NOTE] VoCoT (2024m)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VoCoT&searchtype=all&source=header)
 >
-> **翻译** [2308.15126](https://hjfy.top/arxiv/2308.15126)
->
-> **代码** [Github](https://github.com/junyangwang0410/HaELM)
-
-## VIGC
-
-> [!NOTE] VIGC
-> **Arxiv** [2308.12714](https://arxiv.org/abs/2308.12714)
+> **翻译** 待补充
 >
-> **翻译** [2308.12714](https://hjfy.top/arxiv/2308.12714)
+> **代码** [Github Search](https://github.com/search?q=VoCoT&type=repositories)
 >
-> **代码** [Github](https://github.com/opendatalab/VIGC)
+> **模态** T, I
 >
-> **Demo** [Demo](https://opendatalab.github.io/VIGC)
-
-## Detecting and Preventing Hallucinations
-
-> [!NOTE] Hallucination Detection
-> **Arxiv** [2308.06394](https://arxiv.org/abs/2308.06394)
+> **推理方式** 模型内生推理能力 (Model-Intrinsic)
 >
-> **翻译** [2308.06394](https://hjfy.top/arxiv/2308.06394)
+> **任务** VQA
 
-## LRV-Instruction
+## MVoT
 
-> [!NOTE] LRV
-> **Arxiv** [2306.14565](https://arxiv.org/abs/2306.14565)
+> [!NOTE] MVoT (2025b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=MVoT&searchtype=all&source=header)
 >
-> **翻译** [2306.14565](https://hjfy.top/arxiv/2306.14565)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/FuxiaoLiu/LRV-Instruction)
+> **代码** [Github Search](https://github.com/search?q=MVoT&type=repositories)
 >
-> **Demo** [Demo](https://7b6590ed039a06475d.gradio.live/)
-
-## POPE
-
-> [!IMPORTANT] POPE
-> **Arxiv** [2305.10355](https://arxiv.org/abs/2305.10355)
+> **模态** T, I
 >
-> **翻译** [2305.10355](https://hjfy.top/arxiv/2305.10355)
+> **推理方式** 模型内生推理能力 (Model-Intrinsic)
 >
-> **代码** [Github](https://github.com/RUCAIBox/POPE)
-
-> [!IMPORTANT] 待读论文
-> 本文档包含多模态幻觉相关的待读论文列表,持续更新中...
+> **任务** Spatial Reasoning

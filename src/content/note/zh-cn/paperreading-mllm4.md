@@ -1,10 +1,9 @@
 ---
-title: "PaperReading: MLLM_4 - Multimodal In-Context Learning"
-timestamp: 2026-01-31 00:00:00+08:00
+title: "PaperReading: MLLM_4 - Multimodal o1 and R1"
+timestamp: 2026-04-14 00:00:00+08:00
 series: PaperReading
-tags: [MLLM, Paper, ICL]
-description: 多模态上下文学习相关论文阅读。
-draft: True
+tags: [MLLM, Paper, Reasoning]
+description: 多模态 o1 与 R1 路线论文阅读。
 ---
 
 ### Description
@@ -23,222 +22,586 @@ draft: True
 
 <br>
 
-## Visual In-Context Learning for Large Vision-Language Models
+# Approaches of Multimodal-o1
 
-> [!NOTE] Visual ICL
-> **Arxiv** [2402.11574](https://arxiv.org/abs/2402.11574)
->
-> **翻译** [2402.11574](https://hjfy.top/arxiv/2402.11574)
+## Macro-O1
 
-## RAG-Driver
+> [!NOTE] Macro-O1 (2024c)
+> **Arxiv** [2411.14405](https://arxiv.org/abs/2411.14405)
+>
+> **翻译** [2411.14405](https://hjfy.top/arxiv/2411.14405)
+>
+> **代码** [
+>
+> **Backbone** Qwen2-7B-Instruct
+>
+> **模态** T
+>
+> **推理范式** MCTS-guided Thinking
+>
+> **任务** Math, Translate
 
-> [!NOTE] RAG-Driver
-> **Arxiv** [2402.10828](https://arxiv.org/abs/2402.10828)
->
-> **翻译** [2402.10828](https://hjfy.top/arxiv/2402.10828)
->
-> **代码** [Github](https://github.com/YuanJianhao508/RAG-Driver)
+## llamaberry
 
-## CoBSAT
+> [!NOTE] llamaberry (2024b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=llamaberry&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=llamaberry&type=repositories)
+>
+> **Backbone** LLaMA-3.1-8B
+>
+> **模态** T
+>
+> **推理范式** MCTS-guided Thinking
+>
+> **任务** Math
 
-> [!NOTE] CoBSAT
-> **Arxiv** [2402.01293](https://arxiv.org/abs/2402.01293)
->
-> **翻译** [2402.01293](https://hjfy.top/arxiv/2402.01293)
->
-> **代码** [Github](https://github.com/UW-Madison-Lee-Lab/CoBSAT)
+## LLaVA CoT
 
-## Emu2
+> [!NOTE] LLaVA CoT (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=LLaVA%20CoT&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=LLaVA%20CoT&type=repositories)
+>
+> **Backbone** Llama-3.2V-11B-cot
+>
+> **模态** T, I
+>
+> **推理范式** Summary, Caption, Thinking
+>
+> **任务** Science, General
 
-> [!NOTE] Emu2
-> **Arxiv** [2312.13286](https://arxiv.org/abs/2312.13286)
->
-> **翻译** [2312.13286](https://hjfy.top/arxiv/2312.13286)
->
-> **代码** [Github](https://github.com/baaivision/Emu/tree/main/Emu2)
->
-> **Demo** [Demo](https://huggingface.co/spaces/BAAI/Emu2)
+## LlamaV-o1
 
-## Hijacking Context in Large Multi-modal Models
+> [!NOTE] LlamaV-o1 (2025)
+> **Arxiv** [2501.06186](https://arxiv.org/pdf/2501.06186)
+>
+> **翻译** [2501.06186](https://hjfy.top/arxiv/2501.06186)
+>
+> **代码** [Github Search](https://github.com/search?q=LlamaV-o1&type=repositories)
+>
+> **Backbone** Llama-3.2V-11B-cot
+>
+> **模态** T, I
+>
+> **推理范式** Summary, Caption, Thinking
+>
+> **任务** Science, General
 
-> [!NOTE] Hijacking
-> **Arxiv** [2312.07553](https://arxiv.org/abs/2312.07553)
->
-> **翻译** [2312.07553](https://hjfy.top/arxiv/2312.07553)
+## Mulberry
 
-## Unified In-context Visual Understanding
+> [!NOTE] Mulberry (2024a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Mulberry&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Mulberry&type=repositories)
+>
+> **Backbone** Llama-3.2V-11B-cot / LLaVA-Next-8B / Qwen2-VL-7B
+>
+> **模态** T, I
+>
+> **推理范式** Caption, Rationales, Thinking
+>
+> **任务** Math, General
 
-> [!NOTE] Unified ICL
-> **Arxiv** [2312.02520](https://arxiv.org/abs/2312.02520)
->
-> **翻译** [2312.02520](https://hjfy.top/arxiv/2312.02520)
+## RedStar Geo
 
-## MMICL
+> [!NOTE] RedStar Geo (2025a)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=RedStar%20Geo&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=RedStar%20Geo&type=repositories)
+>
+> **Backbone** InternVL2-8B
+>
+> **模态** T, I
+>
+> **推理范式** Long-Thinking
+>
+> **任务** Math
 
-> [!NOTE] MMICL
-> **Arxiv** [2309.07915](https://arxiv.org/abs/2309.07915)
->
-> **翻译** [2309.07915](https://hjfy.top/arxiv/2309.07915)
->
-> **代码** [Github](https://github.com/HaozheZhao/MIC)
->
-> **Demo** [Demo](https://8904cdd23621858859.gradio.live/)
+## RBF++
 
-## Link-Context Learning
+> [!NOTE] RBF++ (2025d)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=RBF%2B%2B&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=RBF%2B%2B&type=repositories)
+>
+> **Backbone** LLaMA3-8B-Instruct
+>
+> **模态** T
+>
+> **推理范式** SR-MCTS + PPRM
+>
+> **任务** Math
 
-> [!NOTE] Link-Context
-> **Arxiv** [2308.07891](https://arxiv.org/abs/2308.07891)
->
-> **翻译** [2308.07891](https://hjfy.top/arxiv/2308.07891)
->
-> **代码** [Github](https://github.com/isekai-portal/Link-Context-Learning)
->
-> **Demo** [Demo](http://117.144.81.99:20488/)
+<br>
 
-## OpenFlamingo
+# Approaches of Multimodal-R1
 
-> [!IMPORTANT] OpenFlamingo
-> **Arxiv** [2308.01390](https://arxiv.org/abs/2308.01390)
->
-> **翻译** [2308.01390](https://hjfy.top/arxiv/2308.01390)
->
-> **代码** [Github](https://github.com/mlfoundations/open_flamingo)
->
-> **Demo** [Demo](https://huggingface.co/spaces/openflamingo/OpenFlamingo)
+## RLHF-V
 
-## Med-Flamingo
+> [!NOTE] RLHF-V (2024a)
+> **Arxiv** [2312.00849](https://arxiv.org/abs/2312.00849)
+>
+> **翻译** [2312.00849](https://hjfy.top/arxiv/2312.00849)
+>
+> **代码** [Github Search](https://github.com/search?q=RLHF-V&type=repositories)
+>
+> **Backbone** LLaVA-13B
+>
+> **RL算法** DPO
+>
+> **模态** T, I
+>
+> **任务** VQA
 
-> [!NOTE] Med-Flamingo
-> **Arxiv** [2307.15189](https://arxiv.org/abs/2307.15189)
->
-> **翻译** [2307.15189](https://hjfy.top/arxiv/2307.15189)
->
-> **代码** [Github](https://github.com/snap-stanford/med-flamingo)
+## InternVL2.5
 
-## Emu
+> [!NOTE] InternVL2.5 (2024g)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=InternVL2.5&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=InternVL2.5&type=repositories)
+>
+> **Backbone** InternVL
+>
+> **RL算法** MPO(DPO)
+>
+> **模态** T, I
+>
+> **任务** VQA
 
-> [!NOTE] Emu
-> **Arxiv** [2307.05222](https://arxiv.org/abs/2307.05222)
->
-> **翻译** [2307.05222](https://hjfy.top/arxiv/2307.05222)
->
-> **代码** [Github](https://github.com/baaivision/Emu/tree/main/Emu1)
->
-> **Demo** [Demo](http://218.91.113.230:9002/)
+## Insight-V
 
-## AVIS
+> [!NOTE] Insight-V (2024b)
+> **Arxiv** [2411.14432](https://arxiv.org/abs/2411.14432)
+>
+> **翻译** [2411.14432](https://hjfy.top/arxiv/2411.14432)
+>
+> **代码** [Github](https://github.com/dongyh20/Insight-V)
+>
+> **Backbone** LLaMA3-LLaVA Next-DPO
+>
+> **RL算法** DPO
+>
+> **模态** T, I
+>
+> **任务** VQA
 
-> [!NOTE] AVIS
-> **Arxiv** [2306.08129](https://arxiv.org/abs/2306.08129)
->
-> **翻译** [2306.08129](https://hjfy.top/arxiv/2306.08129)
+## LLaVA-Reasoner DPO
 
-## MIMIC-IT
+> [!NOTE] LLaVA-Reasoner DPO (2024e)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=LLaVA-Reasoner%20DPO&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=LLaVA-Reasoner%20DPO&type=repositories)
+>
+> **Backbone** LLaMA3-LLaVA Next
+>
+> **RL算法** DPO
+>
+> **模态** T, I
+>
+> **任务** VQA
 
-> [!NOTE] MIMIC-IT
-> **Arxiv** [2306.05425](https://arxiv.org/abs/2306.05425)
->
-> **翻译** [2306.05425](https://hjfy.top/arxiv/2306.05425)
->
-> **代码** [Github](https://github.com/Luodian/Otter)
->
-> **Demo** [Demo](https://otter.cliangyu.com/)
+## VLM-R1
 
-## ExploreCfg
+> [!NOTE] VLM-R1 (2025b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VLM-R1&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=VLM-R1&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Grounding, Math, Open Vocabulary Detection
 
-> [!NOTE] ExploreCfg
-> **Arxiv** [2305.14800](https://arxiv.org/abs/2305.14800)
->
-> **翻译** [2305.14800](https://hjfy.top/arxiv/2305.14800)
->
-> **代码** [Github](https://github.com/yongliang-wu/ExploreCfg)
+## R1-V
 
-## Chameleon
+> [!NOTE] R1-V (2025c)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=R1-V&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=R1-V&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Counting, Math
 
-> [!NOTE] Chameleon
-> **Arxiv** [2304.09842](https://arxiv.org/abs/2304.09842)
->
-> **翻译** [2304.09842](https://hjfy.top/arxiv/2304.09842)
->
-> **代码** [Github](https://github.com/lupantech/chameleon-llm)
->
-> **Demo** [Demo](https://chameleon-llm.github.io/)
+## MM-EUREKA
 
-## HuggingGPT
+> [!NOTE] MM-EUREKA (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=MM-EUREKA&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=MM-EUREKA&type=repositories)
+>
+> **Backbone** InternVL2.5
+>
+> **RL算法** RLOO
+>
+> **模态** T, I
+>
+> **任务** Math
 
-> [!IMPORTANT] HuggingGPT
-> **Arxiv** [2303.17580](https://arxiv.org/abs/2303.17580)
->
-> **翻译** [2303.17580](https://hjfy.top/arxiv/2303.17580)
->
-> **代码** [Github](https://github.com/microsoft/JARVIS)
->
-> **Demo** [Demo](https://huggingface.co/spaces/microsoft/HuggingGPT)
+## MM-EUREKA Qwen
 
-## MM-REACT
+> [!NOTE] MM-EUREKA Qwen (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=MM-EUREKA%20Qwen&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=MM-EUREKA%20Qwen&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Math
 
-> [!NOTE] MM-REACT
-> **Arxiv** [2303.11381](https://arxiv.org/abs/2303.11381)
->
-> **翻译** [2303.11381](https://hjfy.top/arxiv/2303.11381)
->
-> **代码** [Github](https://github.com/microsoft/MM-REACT)
->
-> **Demo** [Demo](https://huggingface.co/spaces/microsoft-cognitive-service/mm-react)
+## Video-R1
 
-## ICL-D3IE
-
-> [!NOTE] ICL-D3IE
-> **Arxiv** [2303.05063](https://arxiv.org/abs/2303.05063)
+> [!NOTE] Video-R1 (2025b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Video-R1&searchtype=all&source=header)
 >
-> **翻译** [2303.05063](https://hjfy.top/arxiv/2303.05063)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/MAEHCM/ICL-D3IE)
-
-## Prophet
-
-> [!NOTE] Prophet
-> **Arxiv** [2303.01903](https://arxiv.org/abs/2303.01903)
+> **代码** [Github Search](https://github.com/search?q=Video-R1&type=repositories)
 >
-> **翻译** [2303.01903](https://hjfy.top/arxiv/2303.01903)
+> **Backbone** Qwen2.5-VL
 >
-> **代码** [Github](https://github.com/MILVLG/prophet)
-
-## VisProg
-
-> [!IMPORTANT] VisProg
-> **Arxiv** [2211.11559](https://arxiv.org/abs/2211.11559)
+> **RL算法** GRPO
 >
-> **翻译** [2211.11559](https://hjfy.top/arxiv/2211.11559)
+> **模态** T, I, V
 >
-> **代码** [Github](https://github.com/allenai/visprog)
+> **任务** VideoVQA
 
-## PICa
+## LMM-R1
 
-> [!NOTE] PICa
-> **Arxiv** [2206.01242](https://arxiv.org/abs/2206.01242)
+> [!NOTE] LMM-R1 (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=LMM-R1&searchtype=all&source=header)
 >
-> **翻译** [2206.01242](https://hjfy.top/arxiv/2206.01242)
+> **翻译** 待补充
 >
-> **代码** [Github](https://github.com/microsoft/PICa)
-
-## Flamingo
-
-> [!IMPORTANT] Flamingo
-> **Arxiv** [2204.14198](https://arxiv.org/abs/2204.14198)
+> **代码** [Github Search](https://github.com/search?q=LMM-R1&type=repositories)
 >
-> **翻译** [2204.14198](https://hjfy.top/arxiv/2204.14198)
+> **Backbone** Qwen2.5-VL
 >
-> **代码** [Github](https://github.com/mlfoundations/open_flamingo)
+> **RL算法** PPO
 >
-> **Demo** [Demo](https://huggingface.co/spaces/dhansmair/flamingo-mini-cap)
-
-## Frozen
-
-> [!NOTE] Frozen
-> **Arxiv** [2106.13884](https://arxiv.org/abs/2106.13884)
+> **模态** T, I
 >
-> **翻译** [2106.13884](https://hjfy.top/arxiv/2106.13884)
+> **任务** Math
 
-> [!IMPORTANT] 待读论文
-> 本文档包含多模态上下文学习相关的待读论文列表,持续更新中...
+## Vision-R1
+
+> [!NOTE] Vision-R1 (2025c)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Vision-R1&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Vision-R1&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Math
+
+## Visual-RFT
+
+> [!NOTE] Visual-RFT (2025l)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Visual-RFT&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Visual-RFT&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Detection, Classification
+
+## R1-OneVision
+
+> [!NOTE] R1-OneVision (2025g)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=R1-OneVision&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=R1-OneVision&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Math, Science, General, Doc
+
+## Seg-Zero
+
+> [!NOTE] Seg-Zero (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Seg-Zero&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Seg-Zero&type=repositories)
+>
+> **Backbone** Qwen2.5-VL, SAM2
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Grounding
+
+## VisualThinker-R1 Zero
+
+> [!NOTE] VisualThinker-R1 Zero (2025b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VisualThinker-R1%20Zero&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=VisualThinker-R1%20Zero&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Spatial Reasoning
+
+## STAR-R1
+
+> [!NOTE] STAR-R1 (2025q)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=STAR-R1&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=STAR-R1&type=repositories)
+>
+> **Backbone** Qwen2.5-VL-7B
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Spatial Reasoning
+
+## R1-Omni
+
+> [!NOTE] R1-Omni (2025d)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=R1-Omni&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=R1-Omni&type=repositories)
+>
+> **Backbone** HumanOmni
+>
+> **RL算法** GRPO
+>
+> **模态** T, I, A, V
+>
+> **任务** emotion recognition
+
+## OThink-MR1
+
+> [!NOTE] OThink-MR1 (2025k)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=OThink-MR1&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=OThink-MR1&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Counting, Math
+
+## Multimodal-Open R1
+
+> [!NOTE] Multimodal-Open R1 (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Multimodal-Open%20R1&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Multimodal-Open%20R1&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Math
+
+## Reason-RFT
+
+> [!NOTE] Reason-RFT (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Reason-RFT&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Reason-RFT&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Counting, Structure Perception, Spatial Transformation
+
+## VL-Rethinker
+
+> [!NOTE] VL-Rethinker (2025i)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VL-Rethinker&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=VL-Rethinker&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO + SSR
+>
+> **模态** T, I
+>
+> **任务** Mathematical, Scientific, Real-world Reasoning
+
+## Curr-ReFT
+
+> [!NOTE] Curr-ReFT (2025b)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Curr-ReFT&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Curr-ReFT&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I
+>
+> **任务** Detection, Classification, Math
+
+## Open-R1-Video
+
+> [!NOTE] Open-R1-Video (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=Open-R1-Video&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=Open-R1-Video&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** GRPO
+>
+> **模态** T, I, V
+>
+> **任务** VideoVQA
+
+## VisRL
+
+> [!NOTE] VisRL (2025l)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=VisRL&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=VisRL&type=repositories)
+>
+> **Backbone** Qwen2.5-VL
+>
+> **RL算法** DPO
+>
+> **模态** T, I
+>
+> **任务** VQA
+
+## R1-VL
+
+> [!NOTE] R1-VL (2025g)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=R1-VL&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=R1-VL&type=repositories)
+>
+> **Backbone** Qwen2-VL
+>
+> **RL算法** StepGRPO
+>
+> **模态** T, I
+>
+> **任务** Math, ChartQA
+
+## SARI
+
+> [!NOTE] SARI (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=SARI&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=SARI&type=repositories)
+>
+> **Backbone** Qwen2-Audio-7B-Instruct
+>
+> **RL算法** GRPO
+>
+> **模态** A, T
+>
+> **任务** MCQA
+
+## SpaceR
+
+> [!NOTE] SpaceR (2025)
+> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=SpaceR&searchtype=all&source=header)
+>
+> **翻译** 待补充
+>
+> **代码** [Github Search](https://github.com/search?q=SpaceR&type=repositories)
+>
+> **Backbone** Qwen2.5-VL-7B
+>
+> **RL算法** SG RLVR(GRPO)
+>
+> **模态** T, I, V
+>
+> **任务** Video Spatial Reasoning

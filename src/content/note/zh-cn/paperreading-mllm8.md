@@ -4,6 +4,7 @@ timestamp: 2026-01-31 00:00:00+08:00
 series: PaperReading
 tags: [MLLM, Paper, Evaluation, RLHF]
 description: 多模态评估与人类反馈强化学习相关论文阅读。
+draft: True
 ---
 
 ### Description

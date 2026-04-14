@@ -4,7 +4,7 @@ timestamp: 2026-01-24 02:22:48+08:00
 updated: 2026-02-04 19:19:00+08:00
 series: PaperReading
 tags: [MLLM, Paper]
-description: MLLM相关基本论文的阅读和思考。
+description: Vision Language Pretraining相关论文的阅读和思考。
 ---
 
 ### Description

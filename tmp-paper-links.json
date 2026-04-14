@@ -1,0 +1,338 @@
+﻿[
+	{
+		"name": "IdealGPT",
+		"arxiv": "https://arxiv.org/abs/2305.14985v2",
+		"arxivTitle": "IdealGPT: Iteratively Decomposing Vision and Language Reasoning via Large Language Models",
+		"github": "https://github.com/Hxyou/IdealGPT",
+		"githubRepo": "Hxyou/IdealGPT"
+	},
+	{
+		"name": "AssistGPT",
+		"arxiv": "https://arxiv.org/abs/2306.08640v2",
+		"arxivTitle": "AssistGPT: A General Multi-modal Assistant that can Plan, Execute, Inspect, and Learn",
+		"github": "https://github.com/showlab/assistgpt",
+		"githubRepo": "showlab/assistgpt"
+	},
+	{
+		"name": "ProViQ",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/Divyesh230902/proviq",
+		"githubRepo": "Divyesh230902/proviq"
+	},
+	{
+		"name": "MM-REACT",
+		"arxiv": "https://arxiv.org/abs/2303.11381v1",
+		"arxivTitle": "MM-REACT: Prompting ChatGPT for Multimodal Reasoning and Action",
+		"github": "https://github.com/mrousavy/react-native-mmkv",
+		"githubRepo": "mrousavy/react-native-mmkv"
+	},
+	{
+		"name": "VisualReasoner",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/steven-ccq/VisualReasoner",
+		"githubRepo": "steven-ccq/VisualReasoner"
+	},
+	{
+		"name": "Multi-model thought",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "FaST",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/fastapi/fastapi",
+		"githubRepo": "fastapi/fastapi"
+	},
+	{
+		"name": "ICoT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/sixoverground/icotar",
+		"githubRepo": "sixoverground/icotar"
+	},
+	{
+		"name": "Image-of-Thought",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/BuiNguyenGiaBao/Text-to-Image-Generator-with-Chain-of-Thought-and-Diffusion",
+		"githubRepo": "BuiNguyenGiaBao/Text-to-Image-Generator-with-Chain-of-Thought-and-Diffusion"
+	},
+	{
+		"name": "CoTDiffusion",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/metadiffuser/CoTDiffusion",
+		"githubRepo": "metadiffuser/CoTDiffusion"
+	},
+	{
+		"name": "T-SciQ",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Visual-CoT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/deepcs233/Visual-CoT",
+		"githubRepo": "deepcs233/Visual-CoT"
+	},
+	{
+		"name": "VoCoT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/233stone/vocotype-cli",
+		"githubRepo": "233stone/vocotype-cli"
+	},
+	{
+		"name": "MVoT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/chengzu-li/MVoT",
+		"githubRepo": "chengzu-li/MVoT"
+	},
+	{
+		"name": "Macro-O1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "llamaberry",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/Jaimboh/Llamaberry-Chain-of-Thought-Reasoning-in-AI",
+		"githubRepo": "Jaimboh/Llamaberry-Chain-of-Thought-Reasoning-in-AI"
+	},
+	{
+		"name": "LLaVA CoT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/PKU-YuanGroup/LLaVA-CoT",
+		"githubRepo": "PKU-YuanGroup/LLaVA-CoT"
+	},
+	{
+		"name": "LlamaV-o1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/mbzuai-oryx/LlamaV-o1",
+		"githubRepo": "mbzuai-oryx/LlamaV-o1"
+	},
+	{
+		"name": "Mulberry",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "https://github.com/HJYao00/Mulberry",
+		"githubRepo": "HJYao00/Mulberry"
+	},
+	{
+		"name": "RedStar Geo",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "RBF++",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "RLHF-V",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "InternVL2.5",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Insight-V",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "LLaVA-Reasoner DPO",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "VLM-R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "R1-V",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "MM-EUREKA",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "MM-EUREKA Qwen",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Video-R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "LMM-R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Vision-R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Visual-RFT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "R1-OneVision",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Seg-Zero",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "VisualThinker-R1 Zero",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "STAR-R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "R1-Omni",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "OThink-MR1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Multimodal-Open R1",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Reason-RFT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "VL-Rethinker",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Curr-ReFT",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "Open-R1-Video",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "VisRL",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "R1-VL",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "SARI",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	},
+	{
+		"name": "SpaceR",
+		"arxiv": "",
+		"arxivTitle": "",
+		"github": "",
+		"githubRepo": ""
+	}
+]

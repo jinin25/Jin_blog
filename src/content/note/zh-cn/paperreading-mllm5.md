@@ -4,6 +4,7 @@ timestamp: 2026-01-31 00:00:00+08:00
 series: PaperReading
 tags: [MLLM, Paper, CoT]
 description: 多模态思维链相关论文阅读。
+draft: True
 ---
 
 ### Description
