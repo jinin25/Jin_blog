@@ -24,6 +24,8 @@ description: 多模态 o1 与 R1 路线论文阅读。
 
 # Approaches of Multimodal-o1
 
+o1的范式重要学习的是推理过程，一般来说模拟不同的路径，然后选择一条最好的路径，得到答案
+
 ## Macro-O1
 
 > [!NOTE] Macro-O1 (2024c)
@@ -31,7 +33,9 @@ description: 多模态 o1 与 R1 路线论文阅读。
 >
 > **翻译** [2411.14405](https://hjfy.top/arxiv/2411.14405)
 >
-> **代码** [
+> **代码** [GitHub](https://github.com/AIDC-AI/Marco-o1)
+>
+> ---
 >
 > **Backbone** Qwen2-7B-Instruct
 >
@@ -41,15 +45,21 @@ description: 多模态 o1 与 R1 路线论文阅读。
 >
 > **任务** Math, Translate
 
+<img src="/image/Marcos-o1.png" alt="Macro-O1" class="center" style="width:85%;" />
+两个主要贡献，一个是构建了一个带有多种策略的数据集，另一方面在改进了MCTS的搜索策略
+
+将MCTS的搜索方法与LLM的推理结合，在推理的整个过程拆解为不同节点相连，不同的节点表示一步推理的结果，随后利用 LLM 生成时的 Logits（对数概率） 来计算置信度。
+它通过 Softmax 归一化当前 Token 与 Top-5 候选 Token 的概率差，以此作为“奖励信号”。不需要额外的reward model，利用模型内部置信度来指导下一步推理搜索。将推理模型扩展到了开放性任务。
+
 ## llamaberry
 
 > [!NOTE] llamaberry (2024b)
-> **Arxiv** [Arxiv Search](https://arxiv.org/search/?query=llamaberry&searchtype=all&source=header)
+> **Arxiv** [2410.02884](https://arxiv.org/abs/2410.02884)
 >
-> **翻译** 待补充
+> **翻译** [2410.02884](https://hjfy.top/arxiv/2410.02884)
 >
-> **代码** [Github Search](https://github.com/search?q=llamaberry&type=repositories)
->
+> 
+>--------------------------------------
 > **Backbone** LLaMA-3.1-8B
 >
 > **模态** T
@@ -66,7 +76,8 @@ description: 多模态 o1 与 R1 路线论文阅读。
 > **翻译** 待补充
 >
 > **代码** [Github Search](https://github.com/search?q=LLaVA%20CoT&type=repositories)
->
+> 
+>------------------------------------------
 > **Backbone** Llama-3.2V-11B-cot
 >
 > **模态** T, I
