@@ -107,4 +107,16 @@ description: Think-With-Image 相关论文阅读。
 >**代码**：[Github](https://github.com/yfzhang114/Thyme)
 >
 
+![Thyme](/image/Thyme.png)
+
+用代码辅助推理的工作，这种范式一般都是先选择性的生成code，然后用一个沙盒去纠正错误并执行，最后返回辅助推理。这篇工作主要在数据上做了很多贡献，sft数据不同功能用不同的prompt构建，rl数据都是自己清理的。并且沙盒的构建策略也比较复杂，需要考虑代码的格式正确性耗时之类的问题。
+
+并且，训练为sft+rl，在设计RL的时候，GRPO-ATS对于code和text用了不同的temperature，code->0，减少多样性保持准确率，生成推理过程时设置成1，增加探索。
+
+
+
+
+## Benchmark
+
+### V *
 
