@@ -47,26 +47,6 @@ onMount(() => {
 		link.addEventListener("click", () => (menu = false));
 	}
 
-	// #region agent log
-	fetch("http://127.0.0.1:7243/ingest/e69208c1-343b-4982-9b44-784bb3d593bb", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-			sessionId: "debug-session",
-			runId: "pre-fix",
-			hypothesisId: "B",
-			location: "src/layouts/header/Navigator.svelte:onMount",
-			message: "Navigator mounted",
-			data: {
-				menuInitial: menu,
-				hasThemeSwitcherButton: document.querySelectorAll('button[aria-label="Toggle dark theme"]').length,
-				overlayButtons: document.querySelectorAll("button.fixed.top-0.start-0.w-screen.h-screen").length
-			},
-			timestamp: Date.now()
-		})
-	}).catch(() => {});
-	// #endregion agent log
-
 	// Set up route tracking for page navigation with Swup integration
 	const updateRoute = () => (route = window.location.pathname);
 	if (window.swup) {

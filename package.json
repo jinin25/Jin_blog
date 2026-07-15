@@ -1,9 +1,9 @@
 {
-	"name": "astro-theme-thought-lite",
+	"name": "jin-blog",
 	"type": "module",
 	"private": true,
 	"version": "0.35.4",
-	"description": "A modern Astro theme focused on content creation",
+	"description": "Jin's Astro-powered personal blog and study notes",
 	"keywords": [
 		"astro",
 		"theme",
@@ -12,18 +12,19 @@
 		"typescript",
 		"i18n"
 	],
-	"homepage": "https://github.com/tuyuritio/astro-theme-thought-lite",
+	"homepage": "https://jin-blog-iota.vercel.app",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tuyuritio/astro-theme-thought-lite.git"
+		"url": "https://github.com/jinin25/Jin_blog.git"
 	},
 	"bugs": {
-		"url": "https://github.com/tuyuritio/astro-theme-thought-lite/issues"
+		"url": "https://github.com/jinin25/Jin_blog/issues"
 	},
 	"license": "GPL-3.0",
 	"author": {
-		"name": "tuyuritio",
-		"url": "https://github.com/tuyuritio"
+		"name": "Jin",
+		"email": "wjinin25@gmail.com",
+		"url": "https://github.com/jinin25"
 	},
 	"scripts": {
 		"new": "tsx --loader esm-loader-yaml scripts/new.ts",

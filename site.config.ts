@@ -8,7 +8,7 @@ const config = siteConfig({
 		email: "wjinin25@gmail.com",
 		link: "https://your.website"
 	},
-	description: "A modern Astro theme focused on content creation.",
+	description: "Jin's notes on papers, models, engineering, and life.",
 	copyright: {
 		type: "CC BY-NC-ND 4.0",
 		year: "2025"
