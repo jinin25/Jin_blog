@@ -35,3 +35,7 @@ wrangler.toml
 
 # jetbrains setting folder
 .idea/
+
+# Local-only draft notes
+src/content/note/zh-cn/paperreading-agenticgame-w1.md
+src/content/note/zh-cn/paperreading-gui.md
